@@ -1,0 +1,241 @@
+/* ==========================================
+   Progress Bar - Trenzado de Colores
+   Líneas entrelazadas que indican posición
+   ========================================== */
+
+.progress-sidebar {
+    position: fixed;
+    right: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 400px;
+    z-index: var(--z-sticky);
+    pointer-events: none;
+}
+
+/* Contenedor de las líneas */
+.progress-lines {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+/* Línea base de fondo */
+.progress-track {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 4px;
+}
+
+/* Tres líneas entrelazadas */
+.progress-line {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    width: 3px;
+    height: 0%;
+    transform: translateX(-50%);
+    transition: height 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+    filter: blur(0.5px);
+    border-radius: 4px;
+}
+
+/* Línea Verde (Tierra) */
+.progress-line-earth {
+    background: linear-gradient(180deg,
+        var(--earth-light) 0%,
+        var(--earth-primary) 50%,
+        var(--earth-dark) 100%
+    );
+    box-shadow: 0 0 15px var(--earth-glow),
+                0 0 30px var(--earth-glow);
+    animation: weaveEarth 8s ease-in-out infinite;
+}
+
+/* Línea Azul (Aire) */
+.progress-line-air {
+    background: linear-gradient(180deg,
+        var(--air-light) 0%,
+        var(--air-primary) 50%,
+        var(--air-dark) 100%
+    );
+    box-shadow: 0 0 15px var(--air-glow),
+                0 0 30px var(--air-glow);
+    animation: weaveAir 8s ease-in-out infinite;
+    animation-delay: -2.66s;
+}
+
+/* Línea Naranja (Nutrición) */
+.progress-line-nutrition {
+    background: linear-gradient(180deg,
+        var(--nutrition-light) 0%,
+        var(--nutrition-primary) 50%,
+        var(--nutrition-dark) 100%
+    );
+    box-shadow: 0 0 15px var(--nutrition-glow),
+                0 0 30px var(--nutrition-glow);
+    animation: weaveNutrition 8s ease-in-out infinite;
+    animation-delay: -5.33s;
+}
+
+/* Animación de trenzado - Tierra (Verde) */
+@keyframes weaveEarth {
+    0%, 100% {
+        transform: translateX(-50%) translateX(0px);
+        opacity: 1;
+    }
+    33% {
+        transform: translateX(-50%) translateX(-6px);
+        opacity: 0.7;
+    }
+    66% {
+        transform: translateX(-50%) translateX(6px);
+        opacity: 0.9;
+    }
+}
+
+/* Animación de trenzado - Aire (Azul) */
+@keyframes weaveAir {
+    0%, 100% {
+        transform: translateX(-50%) translateX(6px);
+        opacity: 0.9;
+    }
+    33% {
+        transform: translateX(-50%) translateX(0px);
+        opacity: 1;
+    }
+    66% {
+        transform: translateX(-50%) translateX(-6px);
+        opacity: 0.7;
+    }
+}
+
+/* Animación de trenzado - Nutrición (Naranja) */
+@keyframes weaveNutrition {
+    0%, 100% {
+        transform: translateX(-50%) translateX(-6px);
+        opacity: 0.7;
+    }
+    33% {
+        transform: translateX(-50%) translateX(6px);
+        opacity: 0.9;
+    }
+    66% {
+        transform: translateX(-50%) translateX(0px);
+        opacity: 1;
+    }
+}
+
+/* Indicadores de sección */
+.progress-dots {
+    position: absolute;
+    right: -20px;
+    top: 0;
+    width: 40px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    pointer-events: auto;
+}
+
+.progress-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.15);
+    border: 1.5px solid rgba(255, 255, 255, 0.25);
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    cursor: pointer;
+    position: relative;
+}
+
+.progress-dot::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: currentColor;
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.progress-dot.active {
+    background: var(--white-soft);
+    border-color: var(--white-pure);
+    box-shadow: 0 0 12px rgba(255, 255, 255, 0.6),
+                0 0 24px rgba(255, 255, 255, 0.3);
+    transform: scale(1.3);
+}
+
+.progress-dot.active::before {
+    width: 16px;
+    height: 16px;
+}
+
+/* Tooltip para cada sección */
+.progress-dot[data-tooltip] {
+    position: relative;
+}
+
+.progress-dot[data-tooltip]:hover::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 6px 12px;
+    background: rgba(10, 10, 10, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    color: var(--white-soft);
+    font-size: 11px;
+    font-weight: 500;
+    white-space: nowrap;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    backdrop-filter: blur(10px);
+    pointer-events: none;
+    animation: fadeIn 0.2s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-50%) translateX(5px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(-50%) translateX(0);
+    }
+}
+
+/* Colores de los dots según sección */
+.progress-dot[data-section="hero"] { color: var(--white-soft); }
+.progress-dot[data-section="features"] { color: var(--earth-primary); }
+.progress-dot[data-section="how"] { color: var(--air-primary); }
+.progress-dot[data-section="testimonials"] { color: var(--nutrition-primary); }
+.progress-dot[data-section="pricing"] { color: var(--earth-light); }
+.progress-dot[data-section="cta"] { color: var(--air-light); }
+
+/* Responsive - ocultar en mobile */
+@media (max-width: 1024px) {
+    .progress-sidebar {
+        right: 20px;
+        height: 300px;
+    }
+}
+
+@media (max-width: 768px) {
+    .progress-sidebar {
+        display: none;
+    }
+}
