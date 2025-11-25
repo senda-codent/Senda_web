@@ -1,0 +1,78 @@
+{
+  "users": [
+    {
+      "id": "user_001",
+      "email": "demo@senda.com",
+      "password": "demo123",
+      "profile": {
+        "name": "Usuario Demo",
+        "age": 30,
+        "weight": 70,
+        "height": 170,
+        "gender": "male",
+        "goals": ["fitness", "nutrition", "mindfulness"],
+        "preferAI": true,
+        "activityLevel": "moderate",
+        "dietaryRestrictions": [],
+        "fitnessLevel": "intermediate"
+      },
+      "preferences": {
+        "theme": "light",
+        "notifications": true,
+        "language": "es",
+        "units": "metric"
+      },
+      "subscription": {
+        "plan": "pro",
+        "status": "active",
+        "startDate": "2025-01-01",
+        "endDate": "2026-01-01"
+      },
+      "stats": {
+        "streak": 12,
+        "totalWorkouts": 48,
+        "totalMeditations": 65,
+        "mealsLogged": 320
+      },
+      "createdAt": "2025-01-01T10:00:00Z",
+      "lastActive": "2025-11-11T09:00:00Z"
+    },
+    {
+      "id": "user_002",
+      "email": "maria@example.com",
+      "password": "maria123",
+      "profile": {
+        "name": "María García",
+        "age": 28,
+        "weight": 62,
+        "height": 165,
+        "gender": "female",
+        "goals": ["weight_loss", "nutrition"],
+        "preferAI": false,
+        "activityLevel": "light",
+        "dietaryRestrictions": ["vegetarian"],
+        "fitnessLevel": "beginner"
+      },
+      "preferences": {
+        "theme": "light",
+        "notifications": true,
+        "language": "es",
+        "units": "metric"
+      },
+      "subscription": {
+        "plan": "free",
+        "status": "active",
+        "startDate": "2025-10-15",
+        "endDate": null
+      },
+      "stats": {
+        "streak": 5,
+        "totalWorkouts": 12,
+        "totalMeditations": 18,
+        "mealsLogged": 45
+      },
+      "createdAt": "2025-10-15T14:30:00Z",
+      "lastActive": "2025-11-10T18:00:00Z"
+    }
+  ]
+}

@@ -1,0 +1,180 @@
+{
+  "workouts": [
+    {
+      "id": "workout_001",
+      "title": "Cardio Matutino",
+      "type": "cardio",
+      "duration": 30,
+      "difficulty": "intermediate",
+      "description": "Sesión de cardio para empezar el día con energía",
+      "exercises": [
+        {
+          "name": "Calentamiento",
+          "duration": 5,
+          "instructions": "Trote suave en el lugar, rotación de brazos y piernas"
+        },
+        {
+          "name": "Burpees",
+          "reps": 15,
+          "sets": 3,
+          "rest": 30,
+          "instructions": "De pie, baja a cuclillas, estira las piernas, flexión, salta"
+        },
+        {
+          "name": "Mountain Climbers",
+          "duration": 60,
+          "sets": 3,
+          "rest": 30,
+          "instructions": "Posición de plancha, lleva rodillas al pecho alternadamente"
+        },
+        {
+          "name": "Jumping Jacks",
+          "reps": 30,
+          "sets": 3,
+          "rest": 20,
+          "instructions": "Salta abriendo y cerrando piernas y brazos"
+        },
+        {
+          "name": "Enfriamiento",
+          "duration": 5,
+          "instructions": "Caminata suave y estiramientos"
+        }
+      ],
+      "caloriesBurn": 280,
+      "equipment": [],
+      "tags": ["morning", "no-equipment", "full-body"]
+    },
+    {
+      "id": "workout_002",
+      "title": "Fuerza Upper Body",
+      "type": "strength",
+      "duration": 45,
+      "difficulty": "intermediate",
+      "description": "Entrenamiento de fuerza para tren superior",
+      "exercises": [
+        {
+          "name": "Flexiones",
+          "reps": 12,
+          "sets": 4,
+          "rest": 60,
+          "instructions": "Mantén el cuerpo recto, baja el pecho al suelo, empuja hacia arriba"
+        },
+        {
+          "name": "Fondos en silla",
+          "reps": 15,
+          "sets": 3,
+          "rest": 45,
+          "instructions": "Apoya manos en silla, baja y sube flexionando codos"
+        },
+        {
+          "name": "Plancha",
+          "duration": 60,
+          "sets": 3,
+          "rest": 30,
+          "instructions": "Mantén posición de plancha con cuerpo recto"
+        },
+        {
+          "name": "Superman",
+          "reps": 15,
+          "sets": 3,
+          "rest": 30,
+          "instructions": "Boca abajo, levanta brazos y piernas simultáneamente"
+        }
+      ],
+      "caloriesBurn": 200,
+      "equipment": ["silla"],
+      "tags": ["strength", "upper-body", "minimal-equipment"]
+    },
+    {
+      "id": "workout_003",
+      "title": "Yoga Flow Principiante",
+      "type": "flexibility",
+      "duration": 30,
+      "difficulty": "beginner",
+      "description": "Sesión de yoga para mejorar flexibilidad y balance",
+      "exercises": [
+        {
+          "name": "Postura del Niño",
+          "duration": 120,
+          "instructions": "Arrodíllate, siéntate sobre talones, estira brazos al frente"
+        },
+        {
+          "name": "Perro Boca Abajo",
+          "duration": 60,
+          "sets": 3,
+          "rest": 20,
+          "instructions": "Forma V invertida con el cuerpo, manos y pies en el suelo"
+        },
+        {
+          "name": "Guerrero I",
+          "duration": 45,
+          "sets": 2,
+          "rest": 15,
+          "instructions": "Pierna adelante flexionada, atrás estirada, brazos arriba"
+        },
+        {
+          "name": "Árbol",
+          "duration": 60,
+          "sets": 2,
+          "rest": 10,
+          "instructions": "Balance en una pierna, pie contrario en muslo interno"
+        },
+        {
+          "name": "Savasana",
+          "duration": 180,
+          "instructions": "Recuéstate boca arriba, relaja todo el cuerpo"
+        }
+      ],
+      "caloriesBurn": 100,
+      "equipment": ["mat"],
+      "tags": ["yoga", "flexibility", "beginner", "relaxation"]
+    },
+    {
+      "id": "workout_004",
+      "title": "HIIT 20 Minutos",
+      "type": "hiit",
+      "duration": 20,
+      "difficulty": "advanced",
+      "description": "Entrenamiento intenso de intervalos para máxima quema",
+      "exercises": [
+        {
+          "name": "Sprints en el lugar",
+          "duration": 30,
+          "sets": 4,
+          "rest": 30,
+          "instructions": "Corre en el lugar a máxima velocidad"
+        },
+        {
+          "name": "Burpees",
+          "duration": 30,
+          "sets": 4,
+          "rest": 30,
+          "instructions": "Máxima intensidad en cada repetición"
+        },
+        {
+          "name": "High Knees",
+          "duration": 30,
+          "sets": 4,
+          "rest": 30,
+          "instructions": "Levanta rodillas al pecho alternadamente, rápido"
+        },
+        {
+          "name": "Jump Squats",
+          "duration": 30,
+          "sets": 4,
+          "rest": 30,
+          "instructions": "Sentadilla y salta explosivamente"
+        }
+      ],
+      "caloriesBurn": 350,
+      "equipment": [],
+      "tags": ["hiit", "intense", "fat-burn", "no-equipment"]
+    }
+  ],
+  "categories": [
+    { "id": "cardio", "name": "Cardio", "icon": "🏃" },
+    { "id": "strength", "name": "Fuerza", "icon": "💪" },
+    { "id": "flexibility", "name": "Flexibilidad", "icon": "🧘" },
+    { "id": "hiit", "name": "HIIT", "icon": "🔥" }
+  ]
+}

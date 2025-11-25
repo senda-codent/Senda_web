@@ -1,0 +1,202 @@
+{
+  "meals": [
+    {
+      "id": "meal_001",
+      "title": "Avena con Frutas y Nueces",
+      "type": "breakfast",
+      "difficulty": "easy",
+      "prepTime": 10,
+      "servings": 1,
+      "calories": 380,
+      "macros": {
+        "protein": 12,
+        "carbs": 58,
+        "fats": 12,
+        "fiber": 8
+      },
+      "ingredients": [
+        { "item": "Avena", "amount": "60g" },
+        { "item": "Leche de almendras", "amount": "200ml" },
+        { "item": "Plátano", "amount": "1 unidad" },
+        { "item": "Fresas", "amount": "100g" },
+        { "item": "Nueces", "amount": "20g" },
+        { "item": "Miel", "amount": "1 cucharada" },
+        { "item": "Canela", "amount": "1 pizca" }
+      ],
+      "instructions": [
+        "Calentar la leche de almendras en una olla",
+        "Agregar la avena y cocinar a fuego medio por 5 minutos, revolviendo",
+        "Cortar el plátano y las fresas en rodajas",
+        "Servir la avena en un bowl",
+        "Decorar con frutas, nueces y miel",
+        "Espolvorear canela al gusto"
+      ],
+      "tags": ["healthy", "vegetarian", "quick", "energy"],
+      "dietaryInfo": ["vegetarian", "gluten-free"]
+    },
+    {
+      "id": "meal_002",
+      "title": "Ensalada de Pollo con Quinoa",
+      "type": "lunch",
+      "difficulty": "medium",
+      "prepTime": 25,
+      "servings": 2,
+      "calories": 450,
+      "macros": {
+        "protein": 35,
+        "carbs": 42,
+        "fats": 15,
+        "fiber": 6
+      },
+      "ingredients": [
+        { "item": "Pechuga de pollo", "amount": "200g" },
+        { "item": "Quinoa", "amount": "100g" },
+        { "item": "Lechuga mixta", "amount": "150g" },
+        { "item": "Tomate cherry", "amount": "150g" },
+        { "item": "Pepino", "amount": "1 unidad" },
+        { "item": "Aguacate", "amount": "1/2 unidad" },
+        { "item": "Aceite de oliva", "amount": "2 cucharadas" },
+        { "item": "Limón", "amount": "1 unidad" },
+        { "item": "Sal y pimienta", "amount": "Al gusto" }
+      ],
+      "instructions": [
+        "Cocinar la quinoa según instrucciones del paquete (15 min aprox)",
+        "Sazonar el pollo con sal y pimienta",
+        "Cocinar el pollo a la plancha 6-7 min por lado hasta dorar",
+        "Dejar reposar el pollo 5 min y cortar en tiras",
+        "Lavar y cortar las verduras",
+        "En un bowl grande mezclar lechuga, tomates, pepino y quinoa",
+        "Agregar el pollo en tiras y el aguacate",
+        "Preparar vinagreta con aceite, jugo de limón, sal y pimienta",
+        "Aderezar la ensalada y servir"
+      ],
+      "tags": ["protein", "healthy", "balanced", "lunch"],
+      "dietaryInfo": ["gluten-free", "high-protein"]
+    },
+    {
+      "id": "meal_003",
+      "title": "Salmón al Horno con Vegetales",
+      "type": "dinner",
+      "difficulty": "medium",
+      "prepTime": 30,
+      "servings": 2,
+      "calories": 420,
+      "macros": {
+        "protein": 38,
+        "carbs": 25,
+        "fats": 20,
+        "fiber": 7
+      },
+      "ingredients": [
+        { "item": "Filete de salmón", "amount": "300g" },
+        { "item": "Brócoli", "amount": "200g" },
+        { "item": "Zanahoria", "amount": "2 unidades" },
+        { "item": "Pimiento rojo", "amount": "1 unidad" },
+        { "item": "Aceite de oliva", "amount": "2 cucharadas" },
+        { "item": "Ajo", "amount": "2 dientes" },
+        { "item": "Limón", "amount": "1 unidad" },
+        { "item": "Hierbas frescas (romero, tomillo)", "amount": "Al gusto" },
+        { "item": "Sal y pimienta", "amount": "Al gusto" }
+      ],
+      "instructions": [
+        "Precalentar el horno a 200°C",
+        "Lavar y cortar los vegetales en trozos medianos",
+        "Colocar vegetales en una bandeja para horno",
+        "Rociar con 1 cucharada de aceite, ajo picado, sal y pimienta",
+        "Colocar el salmón sobre otra bandeja",
+        "Rociar con aceite, jugo de limón, hierbas, sal y pimienta",
+        "Hornear vegetales 15 min, luego agregar bandeja del salmón",
+        "Hornear todo junto 12-15 min hasta que el salmón esté cocido",
+        "Servir caliente con limón extra"
+      ],
+      "tags": ["omega-3", "healthy", "dinner", "low-carb"],
+      "dietaryInfo": ["gluten-free", "dairy-free", "pescatarian"]
+    },
+    {
+      "id": "meal_004",
+      "title": "Smoothie Verde Energético",
+      "type": "snack",
+      "difficulty": "easy",
+      "prepTime": 5,
+      "servings": 1,
+      "calories": 220,
+      "macros": {
+        "protein": 8,
+        "carbs": 38,
+        "fats": 6,
+        "fiber": 9
+      },
+      "ingredients": [
+        { "item": "Espinaca fresca", "amount": "2 tazas" },
+        { "item": "Plátano", "amount": "1 unidad" },
+        { "item": "Mango", "amount": "1/2 taza" },
+        { "item": "Leche de coco", "amount": "200ml" },
+        { "item": "Semillas de chía", "amount": "1 cucharada" },
+        { "item": "Jengibre fresco", "amount": "1cm" },
+        { "item": "Hielo", "amount": "5-6 cubos" }
+      ],
+      "instructions": [
+        "Lavar bien la espinaca",
+        "Pelar el plátano y el mango",
+        "Colocar todos los ingredientes en la licuadora",
+        "Licuar a alta velocidad hasta obtener consistencia suave",
+        "Servir inmediatamente"
+      ],
+      "tags": ["vegan", "energy", "detox", "quick"],
+      "dietaryInfo": ["vegan", "gluten-free", "dairy-free"]
+    },
+    {
+      "id": "meal_005",
+      "title": "Tacos de Lentejas",
+      "type": "dinner",
+      "difficulty": "medium",
+      "prepTime": 35,
+      "servings": 4,
+      "calories": 380,
+      "macros": {
+        "protein": 18,
+        "carbs": 52,
+        "fats": 10,
+        "fiber": 12
+      },
+      "ingredients": [
+        { "item": "Lentejas cocidas", "amount": "400g" },
+        { "item": "Tortillas de maíz", "amount": "8 unidades" },
+        { "item": "Cebolla", "amount": "1 unidad" },
+        { "item": "Pimiento", "amount": "1 unidad" },
+        { "item": "Tomate", "amount": "2 unidades" },
+        { "item": "Aguacate", "amount": "1 unidad" },
+        { "item": "Cilantro fresco", "amount": "1/2 taza" },
+        { "item": "Comino", "amount": "1 cucharadita" },
+        { "item": "Pimentón", "amount": "1 cucharadita" },
+        { "item": "Limón", "amount": "2 unidades" }
+      ],
+      "instructions": [
+        "Picar cebolla y pimiento, saltear en aceite hasta suave",
+        "Agregar lentejas, comino, pimentón, sal y pimienta",
+        "Cocinar 10 min a fuego medio, machacando ligeramente",
+        "Calentar tortillas en sartén o comal",
+        "Picar tomate, aguacate y cilantro",
+        "Armar tacos con lentejas y vegetales frescos",
+        "Servir con limón y salsa al gusto"
+      ],
+      "tags": ["vegan", "protein", "mexican", "family"],
+      "dietaryInfo": ["vegan", "dairy-free", "high-fiber"]
+    }
+  ],
+  "mealTypes": [
+    { "id": "breakfast", "name": "Desayuno", "icon": "🌅" },
+    { "id": "lunch", "name": "Almuerzo", "icon": "☀️" },
+    { "id": "dinner", "name": "Cena", "icon": "🌙" },
+    { "id": "snack", "name": "Snack", "icon": "🍎" }
+  ],
+  "dietaryFilters": [
+    "vegetarian",
+    "vegan",
+    "gluten-free",
+    "dairy-free",
+    "high-protein",
+    "low-carb",
+    "pescatarian"
+  ]
+}

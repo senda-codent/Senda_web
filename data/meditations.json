@@ -1,0 +1,363 @@
+{
+  "meditations": [
+    {
+      "id": "meditation_001",
+      "title": "Respiración Consciente Matutina",
+      "type": "breathing",
+      "duration": 10,
+      "difficulty": "beginner",
+      "description": "Comienza tu día con esta práctica simple de respiración consciente",
+      "benefits": [
+        "Reduce el estrés",
+        "Aumenta la concentración",
+        "Mejora el estado de ánimo"
+      ],
+      "instructions": [
+        {
+          "step": 1,
+          "duration": 120,
+          "text": "Siéntate cómodamente con la espalda recta",
+          "voice": "Encuentra una posición cómoda. Cierra los ojos suavemente."
+        },
+        {
+          "step": 2,
+          "duration": 60,
+          "text": "Observa tu respiración natural sin cambiarla",
+          "voice": "Simplemente nota cómo entra y sale el aire de tu cuerpo."
+        },
+        {
+          "step": 3,
+          "duration": 240,
+          "text": "Inhala por 4 segundos, sostén 4, exhala 6",
+          "voice": "Ahora vamos a respirar conscientemente. Inhala contando hasta 4..."
+        },
+        {
+          "step": 4,
+          "duration": 240,
+          "text": "Repite el ciclo de respiración",
+          "voice": "Continúa con este ritmo suave y natural."
+        },
+        {
+          "step": 5,
+          "duration": 120,
+          "text": "Vuelve a la respiración natural",
+          "voice": "Poco a poco, deja que tu respiración vuelva a su ritmo natural."
+        },
+        {
+          "step": 6,
+          "duration": 60,
+          "text": "Abre los ojos lentamente",
+          "voice": "Cuando estés listo, abre los ojos. Nota cómo te sientes."
+        }
+      ],
+      "tags": ["morning", "breathing", "stress-relief", "beginner"],
+      "audioUrl": null
+    },
+    {
+      "id": "meditation_002",
+      "title": "Body Scan Relajante",
+      "type": "body-scan",
+      "duration": 15,
+      "difficulty": "beginner",
+      "description": "Escaneo corporal para liberar tensiones y relajarte profundamente",
+      "benefits": [
+        "Libera tensión muscular",
+        "Mejora la conciencia corporal",
+        "Promueve el sueño reparador"
+      ],
+      "instructions": [
+        {
+          "step": 1,
+          "duration": 120,
+          "text": "Recuéstate boca arriba en una posición cómoda",
+          "voice": "Encuentra una posición cómoda acostado. Deja que tu cuerpo se relaje."
+        },
+        {
+          "step": 2,
+          "duration": 180,
+          "text": "Lleva tu atención a los pies",
+          "voice": "Lleva tu atención a tus pies. Nota cualquier sensación allí."
+        },
+        {
+          "step": 3,
+          "duration": 180,
+          "text": "Sube por las piernas lentamente",
+          "voice": "Ahora mueve tu atención hacia las piernas, relajándolas completamente."
+        },
+        {
+          "step": 4,
+          "duration": 180,
+          "text": "Continúa con el torso",
+          "voice": "Lleva la atención a tu abdomen y pecho. Respira naturalmente."
+        },
+        {
+          "step": 5,
+          "duration": 180,
+          "text": "Relaja brazos y manos",
+          "voice": "Escanea tus brazos desde los hombros hasta las manos."
+        },
+        {
+          "step": 6,
+          "duration": 120,
+          "text": "Finaliza en el rostro y cabeza",
+          "voice": "Relaja tu rostro, mandíbula, frente... toda tu cabeza."
+        },
+        {
+          "step": 7,
+          "duration": 120,
+          "text": "Siente todo tu cuerpo relajado",
+          "voice": "Nota cómo todo tu cuerpo descansa en un estado de calma profunda."
+        }
+      ],
+      "tags": ["relaxation", "body-scan", "sleep", "evening"],
+      "audioUrl": null
+    },
+    {
+      "id": "meditation_003",
+      "title": "Atención Plena en el Momento",
+      "type": "mindfulness",
+      "duration": 20,
+      "difficulty": "intermediate",
+      "description": "Práctica de mindfulness para conectar con el presente",
+      "benefits": [
+        "Reduce la ansiedad",
+        "Mejora el enfoque",
+        "Aumenta la claridad mental",
+        "Cultiva la paz interior"
+      ],
+      "instructions": [
+        {
+          "step": 1,
+          "duration": 180,
+          "text": "Siéntate en postura de meditación",
+          "voice": "Encuentra tu asiento. Columna recta pero relajada."
+        },
+        {
+          "step": 2,
+          "duration": 240,
+          "text": "Establece tu intención para la práctica",
+          "voice": "Toma un momento para establecer tu intención. ¿Por qué estás aquí?"
+        },
+        {
+          "step": 3,
+          "duration": 300,
+          "text": "Observa tu respiración",
+          "voice": "Lleva tu atención a la respiración. Nota cada inhalación y exhalación."
+        },
+        {
+          "step": 4,
+          "duration": 420,
+          "text": "Cuando tu mente divague, vuelve suavemente",
+          "voice": "Es natural que la mente divague. Cuando notes que pasa, simplemente vuelve a la respiración."
+        },
+        {
+          "step": 5,
+          "duration": 300,
+          "text": "Expande tu conciencia a todo el cuerpo",
+          "voice": "Ahora expande tu atención para incluir sensaciones en todo tu cuerpo."
+        },
+        {
+          "step": 6,
+          "duration": 180,
+          "text": "Cultiva gratitud",
+          "voice": "Piensa en algo por lo que estés agradecido en este momento."
+        },
+        {
+          "step": 7,
+          "duration": 120,
+          "text": "Regresa lentamente",
+          "voice": "Poco a poco, regresa al espacio. Abre los ojos cuando estés listo."
+        }
+      ],
+      "tags": ["mindfulness", "intermediate", "focus", "clarity"],
+      "audioUrl": null
+    },
+    {
+      "id": "meditation_004",
+      "title": "Meditación Caminando",
+      "type": "walking",
+      "duration": 15,
+      "difficulty": "beginner",
+      "description": "Meditación en movimiento para conectar cuerpo y mente",
+      "benefits": [
+        "Combina ejercicio con mindfulness",
+        "Mejora el equilibrio",
+        "Reduce el estrés",
+        "Conecta con la naturaleza"
+      ],
+      "instructions": [
+        {
+          "step": 1,
+          "duration": 120,
+          "text": "Párate derecho en un espacio donde puedas caminar",
+          "voice": "Encuentra un espacio tranquilo para caminar unos 10-15 pasos."
+        },
+        {
+          "step": 2,
+          "duration": 180,
+          "text": "Siente tus pies en el suelo",
+          "voice": "Siente la conexión de tus pies con el suelo. Nota tu postura."
+        },
+        {
+          "step": 3,
+          "duration": 600,
+          "text": "Comienza a caminar muy lentamente",
+          "voice": "Comienza a caminar despacio. Nota cada movimiento, cada paso."
+        },
+        {
+          "step": 4,
+          "duration": 300,
+          "text": "Presta atención a levantar, mover, colocar el pie",
+          "voice": "Levanta... mueve... coloca. Siente cada fase del paso."
+        },
+        {
+          "step": 5,
+          "duration": 300,
+          "text": "Nota las sensaciones en todo tu cuerpo",
+          "voice": "Expande tu atención a todo el cuerpo mientras caminas."
+        },
+        {
+          "step": 6,
+          "duration": 120,
+          "text": "Detente y nota cómo te sientes",
+          "voice": "Detente. Nota las sensaciones en tu cuerpo. Respira."
+        }
+      ],
+      "tags": ["walking", "movement", "outdoor", "beginner"],
+      "audioUrl": null
+    },
+    {
+      "id": "meditation_005",
+      "title": "Meditación Loving-Kindness (Metta)",
+      "type": "loving-kindness",
+      "duration": 12,
+      "difficulty": "intermediate",
+      "description": "Cultiva compasión y amor hacia ti mismo y los demás",
+      "benefits": [
+        "Aumenta emociones positivas",
+        "Mejora relaciones",
+        "Reduce autocrítica",
+        "Cultiva compasión"
+      ],
+      "instructions": [
+        {
+          "step": 1,
+          "duration": 120,
+          "text": "Siéntate cómodamente y cierra los ojos",
+          "voice": "Encuentra tu asiento. Cierra los ojos suavemente."
+        },
+        {
+          "step": 2,
+          "duration": 180,
+          "text": "Lleva una mano a tu corazón",
+          "voice": "Lleva una o ambas manos a tu corazón. Siente su calidez."
+        },
+        {
+          "step": 3,
+          "duration": 240,
+          "text": "Dirige amor hacia ti mismo: 'Que esté bien, que esté en paz'",
+          "voice": "Repite mentalmente: Que esté bien. Que esté en paz. Que sea feliz."
+        },
+        {
+          "step": 4,
+          "duration": 180,
+          "text": "Piensa en alguien que amas",
+          "voice": "Ahora piensa en alguien que amas. Visualízalo claramente."
+        },
+        {
+          "step": 5,
+          "duration": 180,
+          "text": "Envíale los mismos deseos",
+          "voice": "Que estés bien. Que estés en paz. Que seas feliz."
+        },
+        {
+          "step": 6,
+          "duration": 120,
+          "text": "Expande a todas las personas",
+          "voice": "Ahora expande estos deseos a todas las personas del mundo."
+        },
+        {
+          "step": 7,
+          "duration": 120,
+          "text": "Regresa a ti mismo",
+          "voice": "Vuelve a ti mismo con este amor y compasión. Abre los ojos."
+        }
+      ],
+      "tags": ["loving-kindness", "compassion", "heart", "intermediate"],
+      "audioUrl": null
+    },
+    {
+      "id": "meditation_006",
+      "title": "Respiración 4-7-8 para Dormir",
+      "type": "breathing",
+      "duration": 8,
+      "difficulty": "beginner",
+      "description": "Técnica de respiración para facilitar el sueño profundo",
+      "benefits": [
+        "Facilita conciliar el sueño",
+        "Calma el sistema nervioso",
+        "Reduce la ansiedad nocturna"
+      ],
+      "instructions": [
+        {
+          "step": 1,
+          "duration": 60,
+          "text": "Acuéstate cómodamente en tu cama",
+          "voice": "Recuéstate cómodamente. Cierra los ojos."
+        },
+        {
+          "step": 2,
+          "duration": 120,
+          "text": "Coloca la lengua detrás de los dientes superiores",
+          "voice": "Coloca la punta de la lengua justo detrás de tus dientes superiores."
+        },
+        {
+          "step": 3,
+          "duration": 420,
+          "text": "Exhala completamente por la boca",
+          "voice": "Exhala completamente por la boca haciendo un sonido suave."
+        },
+        {
+          "step": 4,
+          "duration": 240,
+          "text": "Inhala por la nariz contando 4",
+          "voice": "Cierra la boca. Inhala silenciosamente por la nariz... 1, 2, 3, 4."
+        },
+        {
+          "step": 5,
+          "duration": 420,
+          "text": "Sostén la respiración contando 7",
+          "voice": "Sostén la respiración... 1, 2, 3, 4, 5, 6, 7."
+        },
+        {
+          "step": 6,
+          "duration": 480,
+          "text": "Exhala por la boca contando 8",
+          "voice": "Exhala completamente por la boca... 1, 2, 3, 4, 5, 6, 7, 8."
+        },
+        {
+          "step": 7,
+          "duration": 60,
+          "text": "Repite 4 ciclos completos",
+          "voice": "Repite 3 ciclos más. Deja que el sueño llegue naturalmente."
+        }
+      ],
+      "tags": ["sleep", "breathing", "anxiety", "evening", "beginner"],
+      "audioUrl": null
+    }
+  ],
+  "meditationTypes": [
+    { "id": "breathing", "name": "Respiración", "icon": "🌬️" },
+    { "id": "body-scan", "name": "Escaneo Corporal", "icon": "🧘" },
+    { "id": "mindfulness", "name": "Atención Plena", "icon": "🎯" },
+    { "id": "walking", "name": "Caminando", "icon": "🚶" },
+    { "id": "loving-kindness", "name": "Amor y Compasión", "icon": "💚" },
+    { "id": "visualization", "name": "Visualización", "icon": "👁️" }
+  ],
+  "durations": [
+    { "value": 5, "label": "5 min - Rápida" },
+    { "value": 10, "label": "10 min - Estándar" },
+    { "value": 15, "label": "15 min - Completa" },
+    { "value": 20, "label": "20 min - Profunda" }
+  ]
+}

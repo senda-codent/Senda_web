@@ -5,9 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Senda - Tu camino hacia una vida más plena">
     <title>Senda</title>
-    <link rel="stylesheet" href="css/global.css?v=4">
-    <link rel="stylesheet" href="css/landing.css?v=4">
-    <link rel="stylesheet" href="css/progress-bar.css?v=4">
+    <link rel="stylesheet" href="css/global.css?v=8">
+    <link rel="stylesheet" href="css/landing.css?v=8">
+    <link rel="stylesheet" href="css/progress-bar.css?v=8">
+    <link rel="stylesheet" href="css/scroll-expansion.css?v=1">
 </head>
 <body>
     <!-- Minimal Navigation -->
@@ -18,112 +19,87 @@
                 <span>SENDA</span>
             </a>
             <ul class="navbar-menu">
-                <li><a href="#features" class="navbar-link">Features</a></li>
-                <li><a href="#pricing" class="navbar-link">Pricing</a></li>
-                <li><a href="login.html" class="btn btn-primary btn-small">Sign In</a></li>
+                <li><a href="about.html" class="navbar-link">Nosotros</a></li>
+                <li><a href="#waitlist" class="btn btn-primary btn-small">Iniciar Sesión</a></li>
             </ul>
         </div>
     </nav>
 
-    <!-- Hero -->
-    <section class="hero">
-        <div class="hero-background"></div>
-        <div class="container">
-            <div class="hero-content">
+    <!-- Scroll Expansion Hero -->
+    <section id="hero" class="scroll-expansion-hero">
+        <!-- Background Image -->
+        <div class="expansion-background">
+            <img
+                id="bg-image"
+                src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=1920&auto=format&fit=crop"
+                alt="Background - Nature forest path"
+            >
+        </div>
+
+        <!-- Main Container -->
+        <div class="expansion-container">
+            <!-- Expanding Media -->
+            <div class="expansion-media-wrapper">
+                <!-- Image Version (hidden) -->
+                <img
+                    id="main-image"
+                    src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=1280&auto=format&fit=crop"
+                    alt="Senda Wellness - Morning yoga in nature"
+                    style="display: none;"
+                >
+
+                <!-- Video Version (active) -->
+                <video
+                    id="main-video"
+                    src="https://me7aitdbxq.ufs.sh/f/2wsMIGDMQRdYuZ5R8ahEEZ4aQK56LizRdfBSqeDMsmUIrJN1"
+                    autoplay
+                    muted
+                    loop
+                    playsinline
+                    style="display: block;"
+                ></video>
+
+                <div class="expansion-media-overlay"></div>
+            </div>
+
+            <!-- Logo (appears before expansion starts) -->
+            <div class="expansion-logo">
                 <img src="assets/images/senda logo.png" alt="Senda Logo" class="hero-logo">
+            </div>
 
-                <h1 class="hero-title">
-                    Your path to<br>
-                    <span class="highlight">a better life</span>
-                </h1>
+            <!-- Title Split -->
+            <div class="expansion-title-container">
+                <h1 class="expansion-title-first">Tu camino hacia</h1>
+                <h1 class="expansion-title-rest">una vida mejor</h1>
+            </div>
 
+            <!-- Initial CTA below video (appears before expansion) -->
+            <div class="expansion-initial-cta">
+                <a href="#waitlist" class="btn btn-primary btn-large">
+                    Únete Gratis
+                </a>
+            </div>
+
+            <!-- Content after expansion -->
+            <div class="expansion-content">
                 <p class="hero-description">
-                    Everything you need, ready every morning. Zero planning required—your workouts, meals, and mindfulness practices arrive prepared. Just show up.
+                    Todo lo que necesitas, listo cada mañana. Sin planificación requerida—tus entrenamientos, comidas y prácticas de mindfulness llegan preparados. Solo preséntate.
                 </p>
 
                 <div class="hero-cta">
-                    <a href="onboarding.html" class="btn btn-primary btn-large">
-                        Start Free Trial
-                        <span class="btn-caption">No credit card required</span>
+                    <a href="#waitlist" class="btn btn-primary btn-large">
+                        Únete a la Lista de Espera
+                        <span class="btn-caption">Beneficios exclusivos de miembro fundador</span>
                     </a>
-                    <a href="#features" class="btn btn-secondary btn-large">
-                        See How It Works
+                    <a href="#how" class="btn btn-secondary btn-large">
+                        Ver Cómo Funciona
                     </a>
                 </div>
 
                 <div class="hero-trust">
                     <p class="trust-text">
-                        ✓ 10,000+ active users &nbsp;•&nbsp; ✓ 4.8/5 rating &nbsp;•&nbsp; ✓ Cancel anytime
+                        ✓ Acceso anticipado &nbsp;•&nbsp; ✓ Beneficios exclusivos &nbsp;•&nbsp; ✓ Sé el primero en saber
                     </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Features -->
-    <section id="features" class="section features-section">
-        <div class="container">
-            <div class="section-header">
-                <h2>Three pillars.<br>One platform.</h2>
-                <p class="section-subtitle">
-                    Training, nutrition, and mindfulness—all automated and personalized. Wake up to your complete daily plan.
-                </p>
-            </div>
-
-            <div class="features-grid">
-                <div class="feature-card">
-                    <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                        <path d="M17 8V5l3-3M7 8V5L4 2M17 16v3l3 3M7 16v3l-3 3M5 8h14M5 16h14" stroke-linecap="round"/>
-                        <rect x="9" y="8" width="6" height="8" rx="1"/>
-                    </svg>
-                    <h3 class="feature-title">Training</h3>
-                    <p class="feature-description">
-                        Your workout is ready when you are. Choose AI-powered plans or work with certified trainers—either way, zero planning required.
-                    </p>
-                    <ul class="feature-list">
-                        <li>Daily workouts, auto-generated</li>
-                        <li>Professional coaching available</li>
-                        <li>Wearable integration</li>
-                        <li>Local training groups by zone</li>
-                    </ul>
-                </div>
-
-                <div class="feature-card">
-                    <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                        <circle cx="12" cy="12" r="9"/>
-                        <path d="M12 6v6l3 3" stroke-linecap="round"/>
-                        <path d="M16 2v4M8 2v4M20 8h-4M20 16h-4M4 8h4M4 16h4" stroke-linecap="round"/>
-                    </svg>
-                    <h3 class="feature-title">Nutrition</h3>
-                    <p class="feature-description">
-                        Your weekly menu arrives ready with shopping lists and step-by-step recipes. AI or nutritionist—you choose, we handle the rest.
-                    </p>
-                    <ul class="feature-list">
-                        <li>Weekly meal plans, ready Sunday</li>
-                        <li>Auto-generated shopping lists</li>
-                        <li>Step-by-step cooking guides</li>
-                        <li>Adapts to your preferences</li>
-                    </ul>
-                </div>
-
-                <div class="feature-card">
-                    <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                        <circle cx="12" cy="6" r="3"/>
-                        <path d="M12 9c-4 0-6 2-6 6v3M12 9c4 0 6 2 6 6v3" stroke-linecap="round"/>
-                        <circle cx="8" cy="18" r="1.5"/>
-                        <circle cx="16" cy="18" r="1.5"/>
-                        <path d="M9 12l-3 2M15 12l3 2" stroke-linecap="round"/>
-                    </svg>
-                    <h3 class="feature-title">Mindfulness</h3>
-                    <p class="feature-description">
-                        Daily moments of calm, delivered to you. Guided meditations and breathing exercises—no searching, no planning.
-                    </p>
-                    <ul class="feature-list">
-                        <li>Daily guided sessions</li>
-                        <li>Breathing exercises</li>
-                        <li>Progress tracking</li>
-                        <li>Build your streak</li>
-                    </ul>
                 </div>
             </div>
         </div>
@@ -133,151 +109,216 @@
     <section id="how" class="section how-section">
         <div class="container">
             <div class="section-header">
-                <h2>Wake up.<br>Your day is ready.</h2>
-                <p class="section-subtitle">Zero manual tasks. Everything automated for you.</p>
+                <h2>Despierta.<br>Tu día está listo.</h2>
+                <p class="section-subtitle">Cero tareas manuales. Todo automatizado para ti.</p>
             </div>
 
-            <div class="steps-container">
-                <div class="step">
-                    <div class="step-number">1</div>
-                    <div class="step-content">
-                        <h3>Tell us about yourself</h3>
-                        <p>Quick 3-minute questionnaire. Your goals, preferences, lifestyle—we adapt to you.</p>
+            <div class="how-content-grid">
+                <!-- Left Column: Steps -->
+                <div class="steps-container">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h3>Cuéntanos sobre ti</h3>
+                            <p>Cuestionario rápido de 3 minutos. Tus objetivos, preferencias, estilo de vida—nos adaptamos a ti.</p>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h3>Elige tu enfoque</h3>
+                            <p>Automatización con IA o guía profesional (entrenadores, nutricionistas). O ambos.</p>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h3>Tu día llega listo</h3>
+                            <p>Cada mañana: tu plan de entrenamiento, comidas completas con recetas, y práctica de mindfulness. Solo sigue adelante.</p>
+                        </div>
                     </div>
                 </div>
 
-                <div class="step">
-                    <div class="step-number">2</div>
-                    <div class="step-content">
-                        <h3>Choose your approach</h3>
-                        <p>AI automation or professional guidance (trainers, nutritionists). Or both.</p>
+                <!-- Right Column: Phone Mockups -->
+                <div class="app-showcase">
+                    <div class="phone-mockup phone-mockup-1">
+                        <div class="phone-frame">
+                            <div class="phone-screen">
+                                <div class="placeholder-content">
+                                    <div class="placeholder-icon">📱</div>
+                                    <p>Dashboard</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
 
-                <div class="step">
-                    <div class="step-number">3</div>
-                    <div class="step-content">
-                        <h3>Your day arrives ready</h3>
-                        <p>Every morning: your workout plan, complete meals with recipes, and mindfulness practice. Just follow along.</p>
+                    <div class="phone-mockup phone-mockup-2">
+                        <div class="phone-frame">
+                            <div class="phone-screen">
+                                <div class="placeholder-content">
+                                    <div class="placeholder-icon">💪</div>
+                                    <p>Entrenamiento</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="phone-mockup phone-mockup-3">
+                        <div class="phone-frame">
+                            <div class="phone-screen">
+                                <div class="placeholder-content">
+                                    <div class="placeholder-icon">🍎</div>
+                                    <p>Nutrición</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Testimonials -->
-    <section class="section testimonials-section">
+    <!-- Join the Waitlist -->
+    <section id="waitlist" class="section waitlist-section">
         <div class="container">
-            <div class="section-header">
-                <h2>Trusted by thousands</h2>
-                <p class="section-subtitle">
-                    Real stories from our community
+            <div class="waitlist-content">
+                <div class="section-header">
+                    <h2>Únete a la Lista de Espera</h2>
+                    <p class="section-subtitle">
+                        Sé de los primeros en experimentar una mejor forma de vivir. Obtén acceso anticipado exclusivo y beneficios de miembro fundador.
+                    </p>
+                </div>
+
+                <form class="waitlist-form" id="waitlistForm">
+                    <div class="form-group">
+                        <input
+                            type="text"
+                            id="waitlistName"
+                            class="form-input"
+                            placeholder="Tu nombre"
+                            required
+                        >
+                    </div>
+                    <div class="form-group">
+                        <input
+                            type="email"
+                            id="waitlistEmail"
+                            class="form-input"
+                            placeholder="Tu correo electrónico"
+                            required
+                        >
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-large waitlist-submit">
+                        Únete a la Lista de Espera
+                    </button>
+                </form>
+
+                <div class="waitlist-benefits">
+                    <div class="benefit-item">
+                        <div class="benefit-icon">—</div>
+                        <h4>Beneficios de Miembro Fundador</h4>
+                        <p>Descuento de por vida + funciones exclusivas</p>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon">—</div>
+                        <h4>Acceso Anticipado</h4>
+                        <p>Sé el primero en probar nuevas funciones</p>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon">—</div>
+                        <h4>Influencia Directa</h4>
+                        <p>Da forma al producto con tu feedback</p>
+                    </div>
+                </div>
+
+                <p class="waitlist-count">
+                    <span class="count-number" data-target="1247">0</span> personas ya se unieron
                 </p>
             </div>
-
-            <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <div class="testimonial-stars">★★★★★</div>
-                    <p class="testimonial-text">
-                        "Senda changed my life. Having everything in one place - workouts, meals, and mindfulness - made it so easy to stay consistent. Down 15kg in 3 months!"
-                    </p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">M</div>
-                        <div class="author-info">
-                            <h4 class="author-name">María González</h4>
-                            <p class="author-role">Marketing Manager</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="testimonial-card">
-                    <div class="testimonial-stars">★★★★★</div>
-                    <p class="testimonial-text">
-                        "The AI trainer adapts to my schedule and energy levels. Best part? The mindfulness sessions help me manage work stress. Game changer."
-                    </p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">J</div>
-                        <div class="author-info">
-                            <h4 class="author-name">James Carter</h4>
-                            <p class="author-role">Software Engineer</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="testimonial-card">
-                    <div class="testimonial-stars">★★★★★</div>
-                    <p class="testimonial-text">
-                        "Finally, an app that doesn't overcomplicate wellness. Simple daily tasks, amazing recipes, and real results. My whole family uses it now."
-                    </p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">S</div>
-                        <div class="author-info">
-                            <h4 class="author-name">Sarah Kim</h4>
-                            <p class="author-role">Teacher</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="testimonial-stats">
-                <div class="stat-item">
-                    <h3 class="stat-number">10,000+</h3>
-                    <p class="stat-label">Active Users</p>
-                </div>
-                <div class="stat-item">
-                    <h3 class="stat-number">4.8/5</h3>
-                    <p class="stat-label">Average Rating</p>
-                </div>
-                <div class="stat-item">
-                    <h3 class="stat-number">85%</h3>
-                    <p class="stat-label">Report Better Sleep</p>
-                </div>
-            </div>
         </div>
     </section>
 
-    <!-- Pricing -->
-    <section id="pricing" class="section pricing-section">
+    <!-- FAQ -->
+    <section id="faq" class="section faq-section">
         <div class="container">
             <div class="section-header">
-                <h2>Choose your plan</h2>
-                <p class="section-subtitle">No commitments. Cancel anytime.</p>
+                <h2>Preguntas Frecuentes</h2>
+                <p class="section-subtitle">Todo lo que necesitas saber sobre Senda</p>
             </div>
 
-            <div class="pricing-grid">
-                <div class="pricing-card">
-                    <div class="pricing-badge">Free</div>
-                    <h3 class="pricing-title">Senda AI</h3>
-                    <div class="pricing-price">
-                        <span class="price-amount">$0</span>
-                        <span class="price-period">/month</span>
+            <div class="faq-content">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>¿Qué es Senda?</span>
+                        <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Senda es una plataforma integral de bienestar que combina tecnología de IA con apoyo humano profesional para ayudarte a vivir mejor. Proporcionamos planes de entrenamiento personalizados, orientación nutricional y prácticas de mindfulness—todo entregado listo para usar cada mañana. No se requiere planificación de tu parte.</p>
                     </div>
-                    <ul class="pricing-features">
-                        <li>AI training plans</li>
-                        <li>AI nutrition plans</li>
-                        <li>Guided meditations</li>
-                        <li>Progress tracking</li>
-                        <li>Community access</li>
-                    </ul>
-                    <a href="onboarding.html" class="btn btn-secondary btn-large">Start Free</a>
                 </div>
 
-                <div class="pricing-card pricing-featured">
-                    <div class="pricing-badge pricing-badge-primary">Recommended</div>
-                    <h3 class="pricing-title">Senda Pro</h3>
-                    <div class="pricing-price">
-                        <span class="price-amount">$9.99</span>
-                        <span class="price-period">/month</span>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>¿Hay una app de Senda?</span>
+                        <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Estamos trabajando en lanzar Senda para iOS y Android. Pronto podrás acceder a tus planes diarios, hacer seguimiento de tu progreso y conectarte con entrenadores desde tu dispositivo móvil.</p>
                     </div>
-                    <ul class="pricing-features">
-                        <li>Everything in Senda AI</li>
-                        <li>Personal trainers</li>
-                        <li>Nutritionists</li>
-                        <li>Training groups</li>
-                        <li>Wearable integration</li>
-                        <li>Advanced analytics</li>
-                    </ul>
-                    <a href="onboarding.html" class="btn btn-primary btn-large">Try 7 Days Free</a>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>¿Ofrecen una prueba gratis?</span>
+                        <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>¡Por supuesto! Ofrecemos una prueba gratis de 30 días para todas nuestras funciones premium. No se requiere tarjeta de crédito para comenzar. Puedes explorar planes generados por IA, conectarte con profesionales y experimentar la plataforma completa de Senda sin riesgo.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>¿Cómo crea Senda mis planes personalizados?</span>
+                        <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Durante el registro, preguntamos sobre tus objetivos, nivel de condición física, preferencias alimentarias y estilo de vida. Nuestra IA usa esta información para generar planes personalizados. Si eliges apoyo profesional, entrenadores y nutricionistas certificados revisan y personalizan tus planes aún más según tu progreso.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>¿Qué pasa si soy un principiante completo?</span>
+                        <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>¡Senda es perfecto para principiantes! Nuestros planes se adaptan a tu nivel de condición física actual y progresan gradualmente a medida que mejoras. Proporcionamos demostraciones en video, instrucciones detalladas y modificaciones para cada ejercicio. Nunca te sentirás perdido o abrumado.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>¿Puedo cancelar en cualquier momento?</span>
+                        <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Sí, no hay compromisos a largo plazo. Puedes cancelar tu suscripción en cualquier momento desde la configuración de tu cuenta. Tu acceso continuará hasta el final de tu período de facturación.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -286,11 +327,11 @@
     <!-- CTA -->
     <section class="section cta-section">
         <div class="container text-center cta-content">
-            <h2 class="cta-title">Your better life starts tomorrow morning</h2>
+            <h2 class="cta-title">Tu vida mejor comienza mañana por la mañana</h2>
             <p class="cta-description">
-                Join thousands who wake up to their wellness plan, ready and waiting. Zero effort required.
+                Únete a miles de personas que despiertan con su plan de bienestar listo y esperando. Cero esfuerzo requerido.
             </p>
-            <a href="onboarding.html" class="btn btn-primary btn-large">Start Free Trial</a>
+            <a href="#waitlist" class="btn btn-primary btn-large">Únete a la Lista de Espera</a>
         </div>
     </section>
 
@@ -303,14 +344,14 @@
                         <img src="assets/images/senda logo.png" alt="Senda Logo" class="footer-logo-image">
                         <h3>Senda</h3>
                     </div>
-                    <p class="footer-tagline">Helping people live better through knowledge, experience, and technology</p>
+                    <p class="footer-tagline">Ayudando a las personas a vivir mejor a través del conocimiento, la experiencia y la tecnología</p>
                     <div class="social-icons">
-                        <a href="https://instagram.com/sendaproject" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram">
+                        <a href="https://www.instagram.com/sendaproject?igsh=MTQ3N25icWplZTFhbw%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram">
                             <svg viewBox="0 0 24 24" fill="currentColor" class="social-icon">
                                 <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
                             </svg>
                         </a>
-                        <a href="https://tiktok.com/@app_senda" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="TikTok">
+                        <a href="https://www.tiktok.com/@app_senda?_r=1&_t=ZM-91Z2qzQ3CGJ" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="TikTok">
                             <svg viewBox="0 0 24 24" fill="currentColor" class="social-icon">
                                 <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
                             </svg>
@@ -319,34 +360,33 @@
                 </div>
 
                 <div class="footer-column">
-                    <h4>Product</h4>
+                    <h4>Producto</h4>
                     <ul>
-                        <li><a href="#features">Features</a></li>
-                        <li><a href="#pricing">Pricing</a></li>
-                        <li><a href="dashboard.html">Dashboard</a></li>
+                        <li><a href="#how">Cómo Funciona</a></li>
+                        <li><a href="#waitlist">Únete a la Lista</a></li>
                     </ul>
                 </div>
 
                 <div class="footer-column">
-                    <h4>Company</h4>
+                    <h4>Empresa</h4>
                     <ul>
-                        <li><a href="#">About</a></li>
+                        <li><a href="#">Nosotros</a></li>
                         <li><a href="#">Blog</a></li>
-                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Contacto</a></li>
                     </ul>
                 </div>
 
                 <div class="footer-column">
                     <h4>Legal</h4>
                     <ul>
-                        <li><a href="#">Privacy</a></li>
-                        <li><a href="#">Terms</a></li>
+                        <li><a href="#">Privacidad</a></li>
+                        <li><a href="#">Términos</a></li>
                     </ul>
                 </div>
             </div>
 
             <div class="footer-bottom">
-                <p>&copy; 2025 Senda. All rights reserved.</p>
+                <p>&copy; 2025 Senda. Todos los derechos reservados.</p>
             </div>
         </div>
     </footer>
@@ -360,16 +400,18 @@
             <div class="progress-line progress-line-nutrition"></div>
         </div>
         <div class="progress-dots">
-            <div class="progress-dot" data-section="hero" data-tooltip="Hero"></div>
-            <div class="progress-dot" data-section="features" data-tooltip="Features"></div>
-            <div class="progress-dot" data-section="how" data-tooltip="How it Works"></div>
-            <div class="progress-dot" data-section="testimonials" data-tooltip="Testimonials"></div>
-            <div class="progress-dot" data-section="pricing" data-tooltip="Pricing"></div>
-            <div class="progress-dot" data-section="cta" data-tooltip="CTA"></div>
+            <div class="progress-dot" data-section="hero" data-tooltip="Inicio"></div>
+            <div class="progress-dot" data-section="how" data-tooltip="Cómo Funciona"></div>
+            <div class="progress-dot" data-section="waitlist" data-tooltip="Lista de Espera"></div>
+            <div class="progress-dot" data-section="faq" data-tooltip="Preguntas Frecuentes"></div>
         </div>
     </div>
 
+    <!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
     <script src="js/main.js"></script>
     <script src="js/landing.js"></script>
+    <script src="js/scroll-expansion.js"></script>
 </body>
 </html>

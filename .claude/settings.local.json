@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(start index.html)",
+      "Bash(python -m http.server:*)",
+      "Bash(npx http-server -p 3000)",
+      "Bash(npx create-next-app:*)",
+      "Bash(npm install:*)",
+      "Bash(npm run dev:*)",
+      "Bash(xcopy:*)",
+      "Bash(robocopy:*)",
+      "Bash(copy \"c:\\Users\\Felipe Ledesma\\Documents\\git\\personal\\Senda_web\\assets\\images\\Senda backg.png\" \"c:\\Users\\Felipe Ledesma\\Documents\\git\\personal\\senda-nextjs\\public\\assets\\images\"\" && copy \"c:UsersFelipe LedesmaDocumentsgitpersonalSenda_webassetsimagessenda logo.png\" \"c:UsersFelipe LedesmaDocumentsgitpersonalsenda-nextjspublicassetsimages\"\")",
+      "Bash(start scroll-expansion-demo.html)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

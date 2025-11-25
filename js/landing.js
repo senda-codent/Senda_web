@@ -44,13 +44,14 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ==========================================
-    // Navbar Scroll Effect
+    // Navbar Scroll Effect - Optimized
     // ==========================================
 
     const navbar = document.querySelector('.navbar');
     let lastScroll = 0;
+    let navbarTicking = false;
 
-    window.addEventListener('scroll', () => {
+    const updateNavbar = () => {
         const currentScroll = window.pageYOffset;
 
         if (currentScroll > 100) {
@@ -67,7 +68,17 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         lastScroll = currentScroll;
-    });
+        navbarTicking = false;
+    };
+
+    const requestNavbarTick = () => {
+        if (!navbarTicking) {
+            requestAnimationFrame(updateNavbar);
+            navbarTicking = true;
+        }
+    };
+
+    window.addEventListener('scroll', requestNavbarTick, { passive: true });
 
     // ==========================================
     // Animated Counters
@@ -103,47 +114,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ==========================================
-    // Phone Mockup Parallax Effect
-    // ==========================================
-
-    const phoneMockup = document.querySelector('.phone-mockup');
-    if (phoneMockup) {
-        window.addEventListener('mousemove', (e) => {
-            const x = (e.clientX / window.innerWidth - 0.5) * 20;
-            const y = (e.clientY / window.innerHeight - 0.5) * 20;
-
-            phoneMockup.style.transform = `
-                perspective(1000px)
-                rotateY(${-x}deg)
-                rotateX(${y}deg)
-            `;
-        });
-
-        // Reset on mouse leave
-        phoneMockup.addEventListener('mouseleave', () => {
-            phoneMockup.style.transform = 'perspective(1000px) rotateY(-5deg)';
-        });
-    }
-
-    // ==========================================
-    // Pricing Toggle (Future: Monthly/Yearly)
-    // ==========================================
-
-    const pricingToggle = document.querySelector('.pricing-toggle');
-    if (pricingToggle) {
-        pricingToggle.addEventListener('change', (e) => {
-            const isYearly = e.target.checked;
-            document.querySelectorAll('.pricing-card').forEach(card => {
-                if (isYearly) {
-                    card.classList.add('pricing-yearly');
-                } else {
-                    card.classList.remove('pricing-yearly');
-                }
-            });
-        });
-    }
-
-    // ==========================================
     // CTA Button Tracking
     // ==========================================
 
@@ -155,114 +125,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // ==========================================
-    // Scroll Progress Indicator
-    // ==========================================
-
-    const createScrollIndicator = () => {
-        const indicator = document.createElement('div');
-        indicator.className = 'scroll-progress';
-        indicator.style.cssText = `
-            position: fixed;
-            top: 0;
-            left: 0;
-            height: 3px;
-            background: linear-gradient(90deg, var(--verde-bosque), var(--verde-agua));
-            width: 0%;
-            z-index: 9999;
-            transition: width 0.1s ease;
-        `;
-        document.body.appendChild(indicator);
-
-        window.addEventListener('scroll', () => {
-            const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            const scrolled = (window.scrollY / windowHeight) * 100;
-            indicator.style.width = scrolled + '%';
-        });
-    };
-
-    createScrollIndicator();
-
-    // ==========================================
-    // Testimonials Carousel (Future feature)
-    // ==========================================
-
-    const initTestimonialsCarousel = () => {
-        const carousel = document.querySelector('.testimonials-carousel');
-        if (!carousel) return;
-
-        let currentSlide = 0;
-        const slides = carousel.querySelectorAll('.testimonial-slide');
-        const dotsContainer = carousel.querySelector('.carousel-dots');
-
-        // Create dots
-        slides.forEach((_, index) => {
-            const dot = document.createElement('button');
-            dot.className = 'carousel-dot';
-            if (index === 0) dot.classList.add('active');
-            dot.addEventListener('click', () => goToSlide(index));
-            dotsContainer.appendChild(dot);
-        });
-
-        const goToSlide = (n) => {
-            slides[currentSlide].classList.remove('active');
-            dotsContainer.children[currentSlide].classList.remove('active');
-
-            currentSlide = (n + slides.length) % slides.length;
-
-            slides[currentSlide].classList.add('active');
-            dotsContainer.children[currentSlide].classList.add('active');
-        };
-
-        // Auto-advance
-        setInterval(() => {
-            goToSlide(currentSlide + 1);
-        }, 5000);
-    };
-
-    initTestimonialsCarousel();
-
-    // ==========================================
-    // FAQ Accordion
-    // ==========================================
-
-    document.querySelectorAll('.faq-question').forEach(question => {
-        question.addEventListener('click', () => {
-            const faqItem = question.parentElement;
-            const isOpen = faqItem.classList.contains('open');
-
-            // Close all FAQ items
-            document.querySelectorAll('.faq-item').forEach(item => {
-                item.classList.remove('open');
-            });
-
-            // Open clicked item if it wasn't open
-            if (!isOpen) {
-                faqItem.classList.add('open');
-            }
-        });
-    });
-
-    // ==========================================
-    // Email Capture Form (if exists)
-    // ==========================================
-
-    const emailForm = document.querySelector('.email-capture-form');
-    if (emailForm) {
-        emailForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const email = emailForm.querySelector('input[type="email"]').value;
-
-            if (Utils.isValidEmail(email)) {
-                // Store email for later (or send to backend)
-                localStorage.setItem('senda_waitlist_email', email);
-                Utils.showToast('¡Gracias! Te contactaremos pronto.', 'success');
-                emailForm.reset();
-            } else {
-                Utils.showToast('Por favor ingresa un email válido', 'error');
-            }
-        });
-    }
 
     // ==========================================
     // Lazy Load Images
@@ -343,6 +205,12 @@ document.addEventListener('DOMContentLoaded', () => {
         scrollObserver.observe(step);
     });
 
+    // Observe pillar cards with stagger
+    document.querySelectorAll('.pillar-card').forEach(card => {
+        card.classList.add('scroll-reveal-stagger');
+        scrollObserver.observe(card);
+    });
+
     // ==========================================
     // Progress Sidebar with Braided Lines
     // ==========================================
@@ -353,33 +221,47 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Define sections to track
         const sections = [
-            { id: 'hero', element: document.querySelector('.hero') },
-            { id: 'features', element: document.getElementById('features') },
+            { id: 'hero', element: document.getElementById('hero') || document.querySelector('.scroll-expansion-hero') },
             { id: 'how', element: document.getElementById('how') },
-            { id: 'testimonials', element: document.querySelector('.testimonials-section') },
-            { id: 'pricing', element: document.getElementById('pricing') },
-            { id: 'cta', element: document.querySelector('.cta-section') }
+            { id: 'waitlist', element: document.getElementById('waitlist') },
+            { id: 'faq', element: document.getElementById('faq') }
         ].filter(s => s.element); // Filter out sections that don't exist
+
+        let ticking = false;
 
         const updateProgressBar = () => {
             const windowHeight = window.innerHeight;
             const documentHeight = document.documentElement.scrollHeight;
             const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            const scrollPercent = (scrollTop / (documentHeight - windowHeight)) * 100;
 
-            // Update all three braided lines with the same progress
+            // Get hero section height to offset the calculation
+            const heroSection = sections.find(s => s.id === 'hero');
+            const heroHeight = heroSection ? heroSection.element.offsetHeight : windowHeight;
+
+            // Adjust scroll calculation to account for hero section
+            // When user finishes hero (scrolls past it), progress should already be past first dot
+            const adjustedScrollTop = scrollTop + heroHeight * 0.5; // Add 50% of hero height as offset
+            const maxScroll = documentHeight - windowHeight;
+            const scrollPercent = maxScroll > 0 ? (adjustedScrollTop / maxScroll) * 100 : 0;
+
+            // Update all three braided lines with the same progress - smooth interpolation
+            const heightValue = `${Math.min(Math.max(scrollPercent, 0), 100)}%`;
             progressLines.forEach(line => {
-                line.style.height = `${Math.min(scrollPercent, 100)}%`;
+                line.style.height = heightValue;
             });
 
             // Update active dot based on current section
             let currentSection = sections[0].id;
-            sections.forEach((section, index) => {
-                const rect = section.element.getBoundingClientRect();
-                const sectionMiddle = rect.top + (rect.height / 2);
+            let closestDistance = Infinity;
 
-                // If section middle is in the top half of viewport, mark as current
-                if (sectionMiddle < windowHeight / 2 && sectionMiddle > -rect.height / 2) {
+            sections.forEach((section) => {
+                const rect = section.element.getBoundingClientRect();
+                // Calculate distance from top of viewport to top of section
+                const distance = Math.abs(rect.top);
+
+                // The section closest to the top of the viewport is the current one
+                if (distance < closestDistance && rect.top <= windowHeight / 2) {
+                    closestDistance = distance;
                     currentSection = section.id;
                 }
             });
@@ -392,6 +274,15 @@ document.addEventListener('DOMContentLoaded', () => {
                     dot.classList.remove('active');
                 }
             });
+
+            ticking = false;
+        };
+
+        const requestTick = () => {
+            if (!ticking) {
+                requestAnimationFrame(updateProgressBar);
+                ticking = true;
+            }
         };
 
         // Add click handlers to dots for smooth scrolling
@@ -407,14 +298,179 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
 
-        // Update on scroll
-        window.addEventListener('scroll', updateProgressBar, { passive: true });
+        // Update on scroll with throttling
+        window.addEventListener('scroll', requestTick, { passive: true });
 
         // Initial update
         updateProgressBar();
     };
 
     initProgressBar();
+
+    // ==========================================
+    // EmailJS Initialization
+    // ==========================================
+
+    // Initialize EmailJS with your public key
+    if (typeof emailjs !== 'undefined') {
+        emailjs.init('rva8mAPlE0EJupC5b');
+    }
+
+    // ==========================================
+    // Waitlist Form Handling
+    // ==========================================
+
+    const waitlistForm = document.getElementById('waitlistForm');
+    if (waitlistForm) {
+        waitlistForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const nameInput = document.getElementById('waitlistName');
+            const emailInput = document.getElementById('waitlistEmail');
+            const submitButton = waitlistForm.querySelector('.waitlist-submit');
+
+            const name = nameInput.value.trim();
+            const email = emailInput.value.trim();
+
+            // Basic validation
+            if (!name || !email) {
+                alert('Por favor, completa todos los campos');
+                return;
+            }
+
+            // Email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                alert('Por favor, ingresa un correo electrónico válido');
+                return;
+            }
+
+            // Disable button during submission
+            submitButton.disabled = true;
+            submitButton.textContent = 'Uniéndote...';
+
+            try {
+                // Send emails via EmailJS
+                if (typeof emailjs !== 'undefined') {
+                    // Template params for notification email to Senda team
+                    const notificationParams = {
+                        from_name: name,
+                        from_email: email,
+                        message: new Date().toLocaleString()
+                    };
+
+                    // Template params for auto-reply email to user
+                    const autoReplyParams = {
+                        user_name: name,
+                        reply_to: email,
+                        to_email: email  // Ensure the email goes to the user
+                    };
+
+                    // Send both emails in parallel
+                    await Promise.all([
+                        // 1. Notification to start.senda@gmail.com
+                        emailjs.send('service_9sl31ro', 'template_eug0d4u', notificationParams),
+                        // 2. Auto-reply to user
+                        emailjs.send('service_9sl31ro', 'template_sqejque', autoReplyParams)
+                    ]);
+
+                    console.log('Emails sent successfully: notification to team + auto-reply to user');
+                }
+
+                // Store in localStorage as backup
+                const waitlistData = JSON.parse(localStorage.getItem('senda_waitlist') || '[]');
+                waitlistData.push({
+                    name,
+                    email,
+                    timestamp: new Date().toISOString()
+                });
+                localStorage.setItem('senda_waitlist', JSON.stringify(waitlistData));
+
+                // Success feedback
+                submitButton.textContent = '✓ ¡Te has unido!';
+                submitButton.style.background = 'var(--earth-primary)';
+
+                // Reset form after delay
+                setTimeout(() => {
+                    waitlistForm.reset();
+                    submitButton.disabled = false;
+                    submitButton.textContent = 'Únete a la Lista de Espera';
+                    submitButton.style.background = '';
+                }, 2000);
+
+                // Increment counter
+                const countElement = document.querySelector('.count-number');
+                if (countElement) {
+                    const currentCount = parseInt(countElement.textContent.replace(/,/g, ''));
+                    countElement.textContent = (currentCount + 1).toLocaleString();
+                }
+
+                console.log('Waitlist submission:', { name, email });
+            } catch (error) {
+                console.error('Waitlist error:', error);
+                submitButton.disabled = false;
+                submitButton.textContent = 'Únete a la Lista de Espera';
+                alert('Algo salió mal. Por favor, inténtalo de nuevo.');
+            }
+        });
+    }
+
+    // ==========================================
+    // Waitlist Counter Animation
+    // ==========================================
+
+    const waitlistCounter = document.querySelector('.count-number');
+    if (waitlistCounter) {
+        const waitlistCounterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !entry.target.classList.contains('counted')) {
+                    const target = parseInt(entry.target.dataset.target);
+                    animateCounter(entry.target, target, 1500);
+                    entry.target.classList.add('counted');
+                }
+            });
+        }, { threshold: 0.5 });
+
+        waitlistCounterObserver.observe(waitlistCounter);
+    }
+
+    // ==========================================
+    // FAQ Accordion
+    // ==========================================
+
+    const faqItems = document.querySelectorAll('.faq-item');
+
+    faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+
+        question.addEventListener('click', () => {
+            const isActive = item.classList.contains('active');
+
+            // Close all other items
+            faqItems.forEach(otherItem => {
+                if (otherItem !== item) {
+                    otherItem.classList.remove('active');
+                }
+            });
+
+            // Toggle current item
+            if (isActive) {
+                item.classList.remove('active');
+            } else {
+                item.classList.add('active');
+            }
+        });
+    });
+
+    // ==========================================
+    // Social Links Debug
+    // ==========================================
+
+    document.querySelectorAll('.social-link').forEach(link => {
+        link.addEventListener('click', (e) => {
+            console.log('Social link clicked:', link.href);
+        });
+    });
 
     // ==========================================
     // Console Welcome Message
