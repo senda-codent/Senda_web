@@ -101,7 +101,7 @@ class ScrollExpansionHero {
             }
 
             // Update scroll progress with smoother delta
-            const scrollDelta = e.deltaY * 0.0015;
+            const scrollDelta = e.deltaY * 0.002;
             this.scrollProgress = Math.min(Math.max(this.scrollProgress + scrollDelta, 0), 1);
 
             // Use RAF for smoother updates
@@ -222,20 +222,21 @@ class ScrollExpansionHero {
             this.mediaOverlay.style.opacity = overlayOpacity;
         }
 
+        // Use transform3d for GPU acceleration on text elements only
         if (this.titleFirst) {
-            this.titleFirst.style.transform = `translateX(-${translateX}vw)`;
+            this.titleFirst.style.transform = `translate3d(-${translateX}vw, 0, 0)`;
         }
 
         if (this.titleRest) {
-            this.titleRest.style.transform = `translateX(${translateX}vw)`;
+            this.titleRest.style.transform = `translate3d(${translateX}vw, 0, 0)`;
         }
 
         if (this.date) {
-            this.date.style.transform = `translateX(-${translateX}vw)`;
+            this.date.style.transform = `translate3d(-${translateX}vw, 0, 0)`;
         }
 
         if (this.scrollHint) {
-            this.scrollHint.style.transform = `translateX(${translateX}vw)`;
+            this.scrollHint.style.transform = `translate3d(${translateX}vw, 0, 0)`;
         }
 
         // Add expanding class

@@ -96,24 +96,28 @@
 
             <!-- Content after expansion -->
             <div class="expansion-content">
-                <p class="hero-description">
-                    Todo lo que necesitas, listo cada mañana. Sin planificación requerida—tus entrenamientos, comidas y prácticas de mindfulness llegan preparados. Solo preséntate.
-                </p>
+                <!-- What We Do - 3 Columns in Hero -->
+                <div class="what-we-do-grid">
+                    <div class="what-item">
+                        <h3 class="what-title">Respira</h3>
+                        <p class="what-description">
+                            Rutinas guiadas para calmarte en el momento justo. No tenés que decidir nada.
+                        </p>
+                    </div>
 
-                <div class="hero-cta">
-                    <a href="#waitlist" class="btn btn-primary btn-large">
-                        Únete a la Lista de Espera
-                        <span class="btn-caption">Beneficios exclusivos de miembro fundador</span>
-                    </a>
-                    <a href="#how" class="btn btn-secondary btn-large">
-                        Ver Cómo Funciona
-                    </a>
-                </div>
+                    <div class="what-item">
+                        <h3 class="what-title">Entrena</h3>
+                        <p class="what-description">
+                            Tu entrenamiento del día, hecho para vos. Solo seguí el plan.
+                        </p>
+                    </div>
 
-                <div class="hero-trust">
-                    <p class="trust-text">
-                        ✓ Acceso anticipado &nbsp;•&nbsp; ✓ Beneficios exclusivos &nbsp;•&nbsp; ✓ Sé el primero en saber
-                    </p>
+                    <div class="what-item">
+                        <h3 class="what-title">Come</h3>
+                        <p class="what-description">
+                            Menú semanal listo: qué comer, qué comprar y cómo prepararlo.
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -240,46 +244,211 @@
                 </div>
 
                 <form class="waitlist-form" id="waitlistForm">
-                    <div class="form-group">
-                        <input
-                            type="text"
-                            id="waitlistName"
-                            class="form-input"
-                            placeholder="Tu nombre"
-                            required
-                        >
-                    </div>
-                    <div class="form-group">
-                        <input
-                            type="email"
-                            id="waitlistEmail"
-                            class="form-input"
-                            placeholder="Tu correo electrónico"
-                            required
-                        >
-                    </div>
-                    <button type="submit" class="btn btn-primary btn-large waitlist-submit">
-                        Únete a la Lista de Espera
-                    </button>
-                </form>
+                    <!-- Left Column: Form Inputs + Benefits -->
+                    <div class="waitlist-left-column">
+                        <!-- Datos básicos siempre visibles -->
+                        <div class="form-group">
+                            <input
+                                type="text"
+                                id="waitlistName"
+                                class="form-input"
+                                placeholder="Tu nombre"
+                                required
+                            >
+                        </div>
+                        <div class="form-group">
+                            <input
+                                type="email"
+                                id="waitlistEmail"
+                                class="form-input"
+                                placeholder="Tu correo electrónico"
+                                required
+                            >
+                        </div>
 
-                <div class="waitlist-benefits">
-                    <div class="benefit-item">
-                        <div class="benefit-icon">—</div>
-                        <h4>Beneficios de Miembro Fundador</h4>
-                        <p>Descuento de por vida + funciones exclusivas</p>
+                        <!-- Benefits moved here -->
+                        <div class="waitlist-benefits">
+                            <div class="benefit-item">
+                                <div class="benefit-icon">—</div>
+                                <h4>Beneficios de Miembro Fundador</h4>
+                                <p>Descuento de por vida + funciones exclusivas</p>
+                            </div>
+                            <div class="benefit-item">
+                                <div class="benefit-icon">—</div>
+                                <h4>Acceso Anticipado</h4>
+                                <p>Sé el primero en probar nuevas funciones</p>
+                            </div>
+                            <div class="benefit-item">
+                                <div class="benefit-icon">—</div>
+                                <h4>Influencia Directa</h4>
+                                <p>Da forma al producto con tu feedback</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="benefit-item">
-                        <div class="benefit-icon">—</div>
-                        <h4>Acceso Anticipado</h4>
-                        <p>Sé el primero en probar nuevas funciones</p>
+
+                    <!-- Right Column: Survey Questions -->
+                    <div class="waitlist-right-column">
+                        <!-- Sección de preguntas desplegables -->
+                        <div class="survey-section">
+                        <!-- Questions Grid -->
+                        <div class="survey-questions-grid">
+                        <!-- Pregunta 1 -->
+                        <div class="survey-question" data-question="1">
+                            <button type="button" class="survey-question-header">
+                                <span class="survey-question-number">1</span>
+                                <span class="survey-question-title">¿Qué te impide mantener una rutina de bienestar?</span>
+                                <svg class="survey-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="6 9 12 15 18 9"></polyline>
+                                </svg>
+                            </button>
+                            <div class="survey-question-content">
+                                <div class="survey-options">
+                                    <label class="survey-checkbox">
+                                        <input type="checkbox" name="barriers" value="no-time">
+                                        <span>No tengo tiempo para planificar</span>
+                                    </label>
+                                    <label class="survey-checkbox">
+                                        <input type="checkbox" name="barriers" value="no-start">
+                                        <span>No sé por dónde empezar</span>
+                                    </label>
+                                    <label class="survey-checkbox">
+                                        <input type="checkbox" name="barriers" value="no-motivation">
+                                        <span>Me falta motivación constante</span>
+                                    </label>
+                                    <label class="survey-checkbox">
+                                        <input type="checkbox" name="barriers" value="too-complex">
+                                        <span>Es muy complicado organizar todo</span>
+                                    </label>
+                                    <label class="survey-checkbox">
+                                        <input type="checkbox" name="barriers" value="no-results">
+                                        <span>No veo resultados rápidos</span>
+                                    </label>
+                                    <label class="survey-checkbox">
+                                        <input type="checkbox" name="barriers" value="other">
+                                        <span>Otro</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Pregunta 2 -->
+                        <div class="survey-question" data-question="2">
+                            <button type="button" class="survey-question-header">
+                                <span class="survey-question-number">2</span>
+                                <span class="survey-question-title">¿Cuánto pagarías mensualmente por tener todo listo cada mañana?</span>
+                                <svg class="survey-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="6 9 12 15 18 9"></polyline>
+                                </svg>
+                            </button>
+                            <div class="survey-question-content">
+                                <div class="survey-options">
+                                    <label class="survey-radio">
+                                        <input type="radio" name="pricing" value="0-10">
+                                        <span>$0 - $10 USD</span>
+                                    </label>
+                                    <label class="survey-radio">
+                                        <input type="radio" name="pricing" value="10-20">
+                                        <span>$10 - $20 USD</span>
+                                    </label>
+                                    <label class="survey-radio">
+                                        <input type="radio" name="pricing" value="20-40">
+                                        <span>$20 - $40 USD</span>
+                                    </label>
+                                    <label class="survey-radio">
+                                        <input type="radio" name="pricing" value="40-60">
+                                        <span>$40 - $60 USD</span>
+                                    </label>
+                                    <label class="survey-radio">
+                                        <input type="radio" name="pricing" value="60+">
+                                        <span>Más de $60 USD</span>
+                                    </label>
+                                    <label class="survey-radio">
+                                        <input type="radio" name="pricing" value="not-pay">
+                                        <span>No pagaría por esto</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Pregunta 3 -->
+                        <div class="survey-question" data-question="3">
+                            <button type="button" class="survey-question-header">
+                                <span class="survey-question-number">3</span>
+                                <span class="survey-question-title">¿Qué preferís para crear tus planes personalizados?</span>
+                                <svg class="survey-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="6 9 12 15 18 9"></polyline>
+                                </svg>
+                            </button>
+                            <div class="survey-question-content">
+                                <div class="survey-options">
+                                    <label class="survey-radio">
+                                        <input type="radio" name="approach" value="ai-only">
+                                        <span>Totalmente automatizado con IA (más económico)</span>
+                                    </label>
+                                    <label class="survey-radio">
+                                        <input type="radio" name="approach" value="professional">
+                                        <span>Con revisión de profesionales (entrenador, nutricionista)</span>
+                                    </label>
+                                    <label class="survey-radio">
+                                        <input type="radio" name="approach" value="hybrid">
+                                        <span>Híbrido: IA + consultas ocasionales con profesionales</span>
+                                    </label>
+                                    <label class="survey-radio">
+                                        <input type="radio" name="approach" value="human-only">
+                                        <span>Solo profesionales humanos</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Pregunta 4 -->
+                        <div class="survey-question" data-question="4">
+                            <button type="button" class="survey-question-header">
+                                <span class="survey-question-number">4</span>
+                                <span class="survey-question-title">¿Qué módulos te interesan más? (máximo 3)</span>
+                                <svg class="survey-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="6 9 12 15 18 9"></polyline>
+                                </svg>
+                            </button>
+                            <div class="survey-question-content">
+                                <div class="survey-options">
+                                    <label class="survey-checkbox">
+                                        <input type="checkbox" name="modules" value="training">
+                                        <span>Entrenamiento físico personalizado</span>
+                                    </label>
+                                    <label class="survey-checkbox">
+                                        <input type="checkbox" name="modules" value="nutrition">
+                                        <span>Plan de alimentación y recetas</span>
+                                    </label>
+                                    <label class="survey-checkbox">
+                                        <input type="checkbox" name="modules" value="meditation">
+                                        <span>Meditación y mindfulness diario</span>
+                                    </label>
+                                    <label class="survey-checkbox">
+                                        <input type="checkbox" name="modules" value="wearables">
+                                        <span>Seguimiento con wearables (reloj, banda)</span>
+                                    </label>
+                                    <label class="survey-checkbox">
+                                        <input type="checkbox" name="modules" value="community">
+                                        <span>Comunidad para entrenar en grupo</span>
+                                    </label>
+                                    <label class="survey-checkbox">
+                                        <input type="checkbox" name="modules" value="kinesiology">
+                                        <span>Kinesiología y prevención de lesiones</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                        <!-- End Questions Grid -->
+
+                        <!-- Submit button outside grid -->
+                        <button type="submit" class="btn btn-primary btn-large waitlist-submit">
+                            Finalizar y Unirse a la Lista
+                        </button>
                     </div>
-                    <div class="benefit-item">
-                        <div class="benefit-icon">—</div>
-                        <h4>Influencia Directa</h4>
-                        <p>Da forma al producto con tu feedback</p>
                     </div>
-                </div>
+                </form>
 
                 <p class="waitlist-count">
                     <span class="count-number" data-target="1247">0</span> personas ya se unieron
@@ -461,5 +630,6 @@
     <script src="js/main.js"></script>
     <script src="js/landing.js"></script>
     <script src="js/scroll-expansion.js"></script>
+    <script src="js/survey.js"></script>
 </body>
 </html>

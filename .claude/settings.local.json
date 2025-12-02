@@ -13,7 +13,8 @@
       "Bash(start scroll-expansion-demo.html)",
       "Bash(git push:*)",
       "Bash(test:*)",
-      "Bash(start about.html)"
+      "Bash(start about.html)",
+      "Bash(git checkout:*)"
     ],
     "deny": [],
     "ask": []
