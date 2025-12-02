@@ -10,7 +10,10 @@
       "Bash(xcopy:*)",
       "Bash(robocopy:*)",
       "Bash(copy \"c:\\Users\\Felipe Ledesma\\Documents\\git\\personal\\Senda_web\\assets\\images\\Senda backg.png\" \"c:\\Users\\Felipe Ledesma\\Documents\\git\\personal\\senda-nextjs\\public\\assets\\images\"\" && copy \"c:UsersFelipe LedesmaDocumentsgitpersonalSenda_webassetsimagessenda logo.png\" \"c:UsersFelipe LedesmaDocumentsgitpersonalsenda-nextjspublicassetsimages\"\")",
-      "Bash(start scroll-expansion-demo.html)"
+      "Bash(start scroll-expansion-demo.html)",
+      "Bash(git push:*)",
+      "Bash(test:*)",
+      "Bash(start about.html)"
     ],
     "deny": [],
     "ask": []

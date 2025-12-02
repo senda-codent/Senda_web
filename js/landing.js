@@ -119,9 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.querySelectorAll('.btn-primary, .btn-cta').forEach(button => {
         button.addEventListener('click', (e) => {
-            const buttonText = e.target.textContent.trim();
-            console.log('CTA Click:', buttonText);
-            // Here you would send analytics data
+            // Analytics tracking would go here
         });
     });
 
@@ -157,58 +155,25 @@ document.addEventListener('DOMContentLoaded', () => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('revealed');
-                // Optionally unobserve after revealing (one-time animation)
                 scrollObserver.unobserve(entry.target);
             }
         });
     }, observerOptions);
 
-    // Observe section headers
-    document.querySelectorAll('.section-header').forEach(header => {
-        header.classList.add('scroll-reveal');
-        scrollObserver.observe(header);
+    // Unified selector for all animated elements
+    const revealElements = '.section-header, .step';
+    const staggerElements = '.feature-card, .daily-card, .testimonial-card, .stat-item, .pricing-card, .pillar-card';
+
+    // Observe all elements with scroll-reveal animation
+    document.querySelectorAll(revealElements).forEach(el => {
+        el.classList.add('scroll-reveal');
+        scrollObserver.observe(el);
     });
 
-    // Observe feature cards with stagger
-    document.querySelectorAll('.feature-card').forEach(card => {
-        card.classList.add('scroll-reveal-stagger');
-        scrollObserver.observe(card);
-    });
-
-    // Observe daily cards with stagger
-    document.querySelectorAll('.daily-card').forEach(card => {
-        card.classList.add('scroll-reveal-stagger');
-        scrollObserver.observe(card);
-    });
-
-    // Observe testimonial cards with stagger
-    document.querySelectorAll('.testimonial-card').forEach(card => {
-        card.classList.add('scroll-reveal-stagger');
-        scrollObserver.observe(card);
-    });
-
-    // Observe stats
-    document.querySelectorAll('.stat-item').forEach(stat => {
-        stat.classList.add('scroll-reveal-stagger');
-        scrollObserver.observe(stat);
-    });
-
-    // Observe pricing cards
-    document.querySelectorAll('.pricing-card').forEach(card => {
-        card.classList.add('scroll-reveal-stagger');
-        scrollObserver.observe(card);
-    });
-
-    // Observe steps
-    document.querySelectorAll('.step').forEach(step => {
-        step.classList.add('scroll-reveal');
-        scrollObserver.observe(step);
-    });
-
-    // Observe pillar cards with stagger
-    document.querySelectorAll('.pillar-card').forEach(card => {
-        card.classList.add('scroll-reveal-stagger');
-        scrollObserver.observe(card);
+    // Observe all elements with scroll-reveal-stagger animation
+    document.querySelectorAll(staggerElements).forEach(el => {
+        el.classList.add('scroll-reveal-stagger');
+        scrollObserver.observe(el);
     });
 
     // ==========================================
@@ -227,40 +192,59 @@ document.addEventListener('DOMContentLoaded', () => {
             { id: 'faq', element: document.getElementById('faq') }
         ].filter(s => s.element); // Filter out sections that don't exist
 
+        // Cache layout measurements (updated only on resize)
+        let layoutCache = {
+            windowHeight: window.innerHeight,
+            documentHeight: document.documentElement.scrollHeight,
+            heroHeight: 0,
+            sectionOffsets: []
+        };
+
+        const updateLayoutCache = () => {
+            layoutCache.windowHeight = window.innerHeight;
+            layoutCache.documentHeight = document.documentElement.scrollHeight;
+            const heroSection = sections.find(s => s.id === 'hero');
+            layoutCache.heroHeight = heroSection ? heroSection.element.offsetHeight : layoutCache.windowHeight;
+            layoutCache.sectionOffsets = sections.map(s => ({
+                id: s.id,
+                offsetTop: s.element.offsetTop,
+                height: s.element.offsetHeight
+            }));
+        };
+
+        // Initialize cache
+        updateLayoutCache();
+
+        // Update cache on resize (debounced)
+        let resizeTimeout;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(updateLayoutCache, 250);
+        });
+
         let ticking = false;
 
         const updateProgressBar = () => {
-            const windowHeight = window.innerHeight;
-            const documentHeight = document.documentElement.scrollHeight;
             const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
-            // Get hero section height to offset the calculation
-            const heroSection = sections.find(s => s.id === 'hero');
-            const heroHeight = heroSection ? heroSection.element.offsetHeight : windowHeight;
-
-            // Adjust scroll calculation to account for hero section
-            // When user finishes hero (scrolls past it), progress should already be past first dot
-            const adjustedScrollTop = scrollTop + heroHeight * 0.5; // Add 50% of hero height as offset
-            const maxScroll = documentHeight - windowHeight;
+            // Use cached values instead of expensive DOM queries
+            const adjustedScrollTop = scrollTop + layoutCache.heroHeight * 0.5;
+            const maxScroll = layoutCache.documentHeight - layoutCache.windowHeight;
             const scrollPercent = maxScroll > 0 ? (adjustedScrollTop / maxScroll) * 100 : 0;
 
-            // Update all three braided lines with the same progress - smooth interpolation
+            // Update all three braided lines with the same progress
             const heightValue = `${Math.min(Math.max(scrollPercent, 0), 100)}%`;
             progressLines.forEach(line => {
                 line.style.height = heightValue;
             });
 
-            // Update active dot based on current section
+            // Update active dot based on current section using cached offsets
             let currentSection = sections[0].id;
             let closestDistance = Infinity;
 
-            sections.forEach((section) => {
-                const rect = section.element.getBoundingClientRect();
-                // Calculate distance from top of viewport to top of section
-                const distance = Math.abs(rect.top);
-
-                // The section closest to the top of the viewport is the current one
-                if (distance < closestDistance && rect.top <= windowHeight / 2) {
+            layoutCache.sectionOffsets.forEach((section) => {
+                const distance = Math.abs(scrollTop - section.offsetTop);
+                if (distance < closestDistance && scrollTop >= section.offsetTop - layoutCache.windowHeight / 2) {
                     closestDistance = distance;
                     currentSection = section.id;
                 }
@@ -350,7 +334,7 @@ document.addEventListener('DOMContentLoaded', () => {
             submitButton.textContent = 'Uniéndote...';
 
             try {
-                // Send emails via EmailJS
+                // Send emails via EmailJS - optimized for better UX
                 if (typeof emailjs !== 'undefined') {
                     // Template params for notification email to Senda team
                     const notificationParams = {
@@ -363,18 +347,17 @@ document.addEventListener('DOMContentLoaded', () => {
                     const autoReplyParams = {
                         user_name: name,
                         reply_to: email,
-                        to_email: email  // Ensure the email goes to the user
+                        to_email: email
                     };
 
-                    // Send both emails in parallel
-                    await Promise.all([
-                        // 1. Notification to start.senda@gmail.com
-                        emailjs.send('service_9sl31ro', 'template_eug0d4u', notificationParams),
-                        // 2. Auto-reply to user
-                        emailjs.send('service_9sl31ro', 'template_sqejque', autoReplyParams)
-                    ]);
+                    // Send critical notification first, show success immediately
+                    await emailjs.send('service_9sl31ro', 'template_eug0d4u', notificationParams);
 
-                    console.log('Emails sent successfully: notification to team + auto-reply to user');
+                    // Send auto-reply in background (non-blocking)
+                    emailjs.send('service_9sl31ro', 'template_sqejque', autoReplyParams)
+                        .catch(err => {
+                            // Silently fail - user already registered successfully
+                        });
                 }
 
                 // Store in localStorage as backup
@@ -404,10 +387,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     const currentCount = parseInt(countElement.textContent.replace(/,/g, ''));
                     countElement.textContent = (currentCount + 1).toLocaleString();
                 }
-
-                console.log('Waitlist submission:', { name, email });
             } catch (error) {
-                console.error('Waitlist error:', error);
+                // Error handling - could send to analytics service
                 submitButton.disabled = false;
                 submitButton.textContent = 'Únete a la Lista de Espera';
                 alert('Algo salió mal. Por favor, inténtalo de nuevo.');
@@ -462,21 +443,5 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // ==========================================
-    // Social Links Debug
-    // ==========================================
-
-    document.querySelectorAll('.social-link').forEach(link => {
-        link.addEventListener('click', (e) => {
-            console.log('Social link clicked:', link.href);
-        });
-    });
-
-    // ==========================================
-    // Console Welcome Message
-    // ==========================================
-
-    console.log('%c¡Hola! 🌱', 'font-size: 24px; color: #4A7C59; font-weight: bold;');
-    console.log('%c¿Interesado en cómo funciona Senda? Únete a nuestro equipo!', 'font-size: 14px; color: #6B9B7B;');
-    console.log('%ccontacto@senda.app', 'font-size: 12px; color: #666;');
+    // Development-only logs removed for production
 });

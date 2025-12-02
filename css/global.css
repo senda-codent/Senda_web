@@ -22,24 +22,24 @@
     --white-pure: #FFFFFF;
     --white-soft: #F5F5F5;
 
-    /* Natural Energy Colors - Saturated & Bold */
-    /* Tierra - Verde vibrante intenso */
-    --earth-primary: #52C370;       /* Verde vibrante */
-    --earth-light: #7DDB96;         /* Verde brillante */
-    --earth-dark: #3A9956;          /* Verde profundo */
-    --earth-glow: rgba(82, 195, 112, 0.3);
+    /* Natural Energy Colors - Inspired by Nature */
+    /* Tierra - Verde bosque natural */
+    --earth-primary: #4a6b52;       /* Verde musgo del bosque */
+    --earth-light: #7a9b6c;         /* Verde claro filtrado */
+    --earth-dark: #2d4a3e;          /* Verde oscuro pinos */
+    --earth-glow: rgba(74, 107, 82, 0.3);
 
-    /* Aire - Azul eléctrico */
-    --air-primary: #5BA8C7;         /* Azul cielo intenso */
-    --air-light: #8DCCE5;           /* Azul brillante */
-    --air-dark: #4088A3;            /* Azul profundo */
-    --air-glow: rgba(91, 168, 199, 0.3);
+    /* Aire - Turquesa océano */
+    --air-primary: #00a6b5;         /* Turquesa brillante del mar */
+    --air-light: #5bc4cf;           /* Turquesa claro olas */
+    --air-dark: #006b7d;            /* Turquesa profundo */
+    --air-glow: rgba(0, 166, 181, 0.3);
 
-    /* Nutrición - Naranja vibrante */
-    --nutrition-primary: #E88959;   /* Naranja terracota */
-    --nutrition-light: #FFA876;     /* Naranja claro */
-    --nutrition-dark: #C76840;      /* Naranja profundo */
-    --nutrition-glow: rgba(232, 137, 89, 0.3);
+    /* Nutrición - Tierra y arena */
+    --nutrition-primary: #8b6f47;   /* Marrón tierra del bosque */
+    --nutrition-light: #d4c5ad;     /* Beige arena */
+    --nutrition-dark: #6b5437;      /* Marrón oscuro */
+    --nutrition-glow: rgba(139, 111, 71, 0.3);
 
     /* Accent Gradient - Liquid & Organic */
     --gradient-earth: linear-gradient(135deg, var(--earth-primary), var(--earth-light));
@@ -190,17 +190,7 @@ a:hover {
     padding: var(--spacing-huge) 0;
 }
 
-/* Grid */
-.grid {
-    display: grid;
-    gap: var(--spacing-lg);
-}
-
-.grid-2 { grid-template-columns: repeat(2, 1fr); }
-.grid-3 { grid-template-columns: repeat(3, 1fr); }
-
 /* Flex */
-.flex { display: flex; }
 .flex-center {
     display: flex;
     align-items: center;
@@ -408,21 +398,6 @@ a:hover {
     font-size: var(--font-size-xs);
 }
 
-/* Cards */
-.card {
-    background: rgba(20, 20, 20, 0.6);
-    backdrop-filter: var(--blur-md);
-    border: 1px solid var(--gray-850);
-    border-radius: var(--border-radius-lg);
-    padding: var(--spacing-xl);
-    transition: all var(--transition-normal);
-}
-
-.card:hover {
-    border-color: var(--gray-750);
-    transform: translateY(-2px);
-}
-
 /* Navigation */
 .navbar {
     position: fixed;
@@ -431,6 +406,14 @@ a:hover {
     right: 0;
     z-index: var(--z-sticky);
     pointer-events: none;
+    will-change: auto;
+    transform: translate3d(0, 0, 0) !important;
+    backface-visibility: hidden;
+    -webkit-transform: translate3d(0, 0, 0) !important;
+    -webkit-backface-visibility: hidden;
+    perspective: 1000px;
+    contain: layout style;
+    isolation: isolate;
 }
 
 .navbar-content {
@@ -438,6 +421,8 @@ a:hover {
     align-items: center;
     justify-content: space-between;
     pointer-events: auto;
+    transform: translate3d(0, 0, 0);
+    -webkit-transform: translate3d(0, 0, 0);
 }
 
 .navbar-logo {
@@ -455,14 +440,18 @@ a:hover {
     padding: var(--spacing-sm) var(--spacing-lg);
     border-radius: 32px;
     border: 1px solid rgba(255, 255, 255, 0.12);
-    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    transition: background 0.4s cubic-bezier(0.23, 1, 0.32, 1),
+                border-color 0.4s cubic-bezier(0.23, 1, 0.32, 1),
+                box-shadow 0.4s cubic-bezier(0.23, 1, 0.32, 1);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transform: translate3d(0, 0, 0) !important;
+    -webkit-transform: translate3d(0, 0, 0) !important;
+    backface-visibility: hidden;
 }
 
 .navbar-logo:hover {
     background: rgba(255, 255, 255, 0.08);
     border-color: rgba(82, 195, 112, 0.4);
-    transform: translateY(-1px);
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
 }
 
@@ -485,23 +474,29 @@ a:hover {
     border-radius: 32px;
     border: 1px solid rgba(255, 255, 255, 0.12);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transform: translate3d(0, 0, 0);
+    -webkit-transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
 }
 
 .navbar-link {
     color: var(--gray-300);
     font-weight: var(--font-medium);
     font-size: var(--font-size-xs);
-    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    transition: color 0.4s cubic-bezier(0.23, 1, 0.32, 1),
+                background 0.4s cubic-bezier(0.23, 1, 0.32, 1),
+                box-shadow 0.4s cubic-bezier(0.23, 1, 0.32, 1);
     letter-spacing: 0.05em;
     text-transform: uppercase;
     padding: var(--spacing-xs) var(--spacing-md);
     border-radius: 24px;
+    transform: translate3d(0, 0, 0) !important;
+    -webkit-transform: translate3d(0, 0, 0) !important;
 }
 
 .navbar-link:hover {
     color: var(--earth-light);
     background: rgba(82, 195, 112, 0.12);
-    transform: translateY(-1px);
     box-shadow: 0 2px 8px rgba(82, 195, 112, 0.1);
 }
 
@@ -562,90 +557,8 @@ a:hover {
 }
 
 /* ==========================================
-   Reusable Glow/Ray Effects
+   Animaciones de Resplandor
    ========================================== */
-
-/* Glow effect - aplicar al elemento padre */
-.glow-effect {
-    position: relative;
-}
-
-/* Glow background - Blue-Green ray */
-.glow-effect::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 120%;
-    height: 150%;
-    background: radial-gradient(
-        ellipse 600px 800px at 50% 50%,
-        rgba(91, 168, 199, 0.25) 0%,
-        rgba(82, 195, 112, 0.15) 25%,
-        rgba(91, 168, 199, 0.1) 50%,
-        transparent 70%
-    );
-    filter: blur(80px);
-    pointer-events: none;
-    z-index: -1;
-    animation: rayGlow 6s ease-in-out infinite;
-}
-
-/* Glow variants - diferentes colores */
-.glow-earth::before {
-    background: radial-gradient(
-        ellipse 600px 800px at 50% 50%,
-        rgba(82, 195, 112, 0.3) 0%,
-        rgba(82, 195, 112, 0.15) 50%,
-        transparent 70%
-    );
-}
-
-.glow-air::before {
-    background: radial-gradient(
-        ellipse 600px 800px at 50% 50%,
-        rgba(91, 168, 199, 0.3) 0%,
-        rgba(91, 168, 199, 0.15) 50%,
-        transparent 70%
-    );
-}
-
-.glow-nutrition::before {
-    background: radial-gradient(
-        ellipse 600px 800px at 50% 50%,
-        rgba(232, 137, 89, 0.3) 0%,
-        rgba(232, 137, 89, 0.15) 50%,
-        transparent 70%
-    );
-}
-
-/* Glow horizontal - para secciones anchas */
-.glow-horizontal::before {
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(
-        ellipse 800px 400px at 50% 50%,
-        rgba(91, 168, 199, 0.15) 0%,
-        rgba(82, 195, 112, 0.1) 30%,
-        transparent 70%
-    );
-    filter: blur(60px);
-    animation: glowPulse 4s ease-in-out infinite;
-}
-
-/* Glow subtle - menos intenso */
-.glow-subtle::before {
-    opacity: 0.5;
-}
-
-/* Glow intense - más intenso */
-.glow-intense::before {
-    opacity: 1;
-    filter: blur(60px);
-}
-
-/* Animaciones para glow effects */
 @keyframes rayGlow {
     0%, 100% {
         opacity: 0.4;
@@ -668,22 +581,36 @@ a:hover {
     }
 }
 
-/* Glow en texto - para destacar títulos */
-.text-glow {
-    text-shadow: 0 0 20px currentColor, 0 0 40px currentColor;
+/* Fade-in animation for page load */
+@keyframes heroFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-.text-glow-earth {
-    color: var(--earth-light);
-    text-shadow: 0 0 20px var(--earth-glow), 0 0 40px var(--earth-glow);
+/* Breathing/pulsing animation for icons */
+@keyframes breathe {
+    0%, 100% {
+        opacity: 0.6;
+    }
+    50% {
+        opacity: 0.8;
+    }
 }
 
-.text-glow-air {
-    color: var(--air-light);
-    text-shadow: 0 0 20px var(--air-glow), 0 0 40px var(--air-glow);
-}
-
-.text-glow-nutrition {
-    color: var(--nutrition-light);
-    text-shadow: 0 0 20px var(--nutrition-glow), 0 0 40px var(--nutrition-glow);
+/* Accessibility: Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
 }

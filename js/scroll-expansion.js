@@ -26,6 +26,8 @@ class ScrollExpansionHero {
         this.isFullyExpanded = false;
         this.touchStartY = 0;
         this.isMobile = window.innerWidth < 768;
+        this.rafId = null;
+        this.rafPending = false;
 
         // Initial dimensions
         this.initialWidth = this.isMobile ? 300 : 300;
@@ -52,10 +54,9 @@ class ScrollExpansionHero {
         } else {
             // Normal initialization - lock scroll for expansion effect
             document.body.classList.add('expansion-locked');
+            // Set initial state
+            this.updateExpansion();
         }
-
-        // Set initial media size
-        this.updateMediaSize();
 
         // Bind events
         this.bindEvents();
@@ -99,10 +100,12 @@ class ScrollExpansionHero {
                 this.container.classList.add('expanding');
             }
 
-            const scrollDelta = e.deltaY * 0.0009;
+            // Update scroll progress with smoother delta
+            const scrollDelta = e.deltaY * 0.0015;
             this.scrollProgress = Math.min(Math.max(this.scrollProgress + scrollDelta, 0), 1);
 
-            this.updateExpansion();
+            // Use RAF for smoother updates
+            this.requestUpdate();
 
             if (this.scrollProgress >= 1) {
                 this.setFullyExpanded();
@@ -144,7 +147,8 @@ class ScrollExpansionHero {
             const scrollDelta = deltaY * scrollFactor;
             this.scrollProgress = Math.min(Math.max(this.scrollProgress + scrollDelta, 0), 1);
 
-            this.updateExpansion();
+            // Use RAF for smooth updates
+            this.requestUpdate();
 
             if (this.scrollProgress >= 1) {
                 this.setFullyExpanded();
@@ -172,36 +176,51 @@ class ScrollExpansionHero {
         this.initialHeight = this.isMobile ? 400 : 400;
         this.maxWidth = this.isMobile ? 950 : 1550;
         this.maxHeight = this.isMobile ? 600 : 800;
+        this.requestUpdate();
+    }
+
+    // Use requestAnimationFrame to batch DOM updates
+    requestUpdate() {
+        if (!this.rafPending) {
+            this.rafPending = true;
+            this.rafId = requestAnimationFrame(() => {
+                this.updateExpansion();
+                this.rafPending = false;
+            });
+        }
+    }
+
+    // Immediate update without requestAnimationFrame for fast scrolling
+    updateExpansionImmediate() {
+        // Cancel any pending RAF to avoid conflicts
+        if (this.rafId) {
+            cancelAnimationFrame(this.rafId);
+            this.rafPending = false;
+        }
         this.updateExpansion();
     }
 
     updateExpansion() {
-        this.updateMediaSize();
-        this.updateBackground();
-        this.updateTitles();
-        this.updateMediaOverlay();
-
-        // Add expanding class
-        this.container.classList.toggle('expanding', this.scrollProgress > 0 && this.scrollProgress < 1);
-    }
-
-    updateMediaSize() {
+        // Calculate dimensions
         const width = this.initialWidth + (this.scrollProgress * (this.maxWidth - this.initialWidth));
         const height = this.initialHeight + (this.scrollProgress * (this.maxHeight - this.initialHeight));
-
-        this.mediaWrapper.style.width = `${width}px`;
-        this.mediaWrapper.style.height = `${height}px`;
-    }
-
-    updateBackground() {
-        if (this.background) {
-            // Background fades out as media expands and covers it
-            this.background.style.opacity = 1 - this.scrollProgress;
-        }
-    }
-
-    updateTitles() {
         const translateX = this.scrollProgress * (this.isMobile ? 180 : 150);
+        const bgOpacity = 1 - this.scrollProgress;
+        const overlayOpacity = 0.5 - (this.scrollProgress * 0.3);
+
+        // Update media wrapper dimensions
+        if (this.mediaWrapper) {
+            this.mediaWrapper.style.width = `${width}px`;
+            this.mediaWrapper.style.height = `${height}px`;
+        }
+
+        if (this.background) {
+            this.background.style.opacity = bgOpacity;
+        }
+
+        if (this.mediaOverlay) {
+            this.mediaOverlay.style.opacity = overlayOpacity;
+        }
 
         if (this.titleFirst) {
             this.titleFirst.style.transform = `translateX(-${translateX}vw)`;
@@ -218,13 +237,9 @@ class ScrollExpansionHero {
         if (this.scrollHint) {
             this.scrollHint.style.transform = `translateX(${translateX}vw)`;
         }
-    }
 
-    updateMediaOverlay() {
-        if (this.mediaOverlay) {
-            const opacity = 0.5 - (this.scrollProgress * 0.3);
-            this.mediaOverlay.style.opacity = opacity;
-        }
+        // Add expanding class
+        this.container.classList.toggle('expanding', this.scrollProgress > 0 && this.scrollProgress < 1);
     }
 
     setFullyExpanded() {
@@ -296,6 +311,11 @@ class ScrollExpansionHero {
     }
 
     destroy() {
+        // Cancel any pending animation frame
+        if (this.rafId) {
+            cancelAnimationFrame(this.rafId);
+        }
+
         window.removeEventListener('wheel', this.handleWheel.bind(this));
         window.removeEventListener('touchstart', this.handleTouchStart.bind(this));
         window.removeEventListener('touchmove', this.handleTouchMove.bind(this));
@@ -305,6 +325,56 @@ class ScrollExpansionHero {
         document.body.classList.remove('expansion-locked');
     }
 }
+
+// Random video selector
+document.addEventListener('DOMContentLoaded', () => {
+    const video = document.getElementById('main-video');
+    const bgImage = document.getElementById('bg-image');
+    const fallbackImage = document.getElementById('main-image');
+
+    if (video) {
+        const sources = video.querySelectorAll('source');
+
+        // Background images for each video type
+        const backgrounds = {
+            sunset: 'assets/images/atardecer.jpeg',
+            ocean: 'assets/images/mar.jpeg',
+            forest: 'assets/images/bosque.jpeg'
+        };
+
+        // Pick a random video index
+        const randomIndex = Math.floor(Math.random() * sources.length);
+        const selectedSource = sources[randomIndex];
+
+        // Set the selected video source
+        video.src = selectedSource.src;
+
+        // Set matching background
+        const bgType = selectedSource.getAttribute('data-bg');
+        if (bgImage && backgrounds[bgType]) {
+            bgImage.src = backgrounds[bgType];
+        }
+
+        // Load and play the video
+        video.load();
+
+        // Error fallback handler - try next video if current fails
+        let currentSourceIndex = randomIndex;
+        video.addEventListener('error', () => {
+            console.log('Video error, trying next source');
+            currentSourceIndex = (currentSourceIndex + 1) % sources.length;
+            const nextSource = sources[currentSourceIndex];
+
+            video.src = nextSource.src;
+            const nextBgType = nextSource.getAttribute('data-bg');
+            if (bgImage && backgrounds[nextBgType]) {
+                bgImage.src = backgrounds[nextBgType];
+            }
+
+            video.load();
+        }, true);
+    }
+});
 
 // Auto-initialize if element exists
 document.addEventListener('DOMContentLoaded', () => {

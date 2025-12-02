@@ -19,7 +19,8 @@
     height: 100%;
     z-index: 0;
     opacity: 1;
-    transition: opacity 0.3s ease;
+    transition: none; /* Remove transition for smoother scroll */
+    will-change: opacity; /* GPU acceleration hint */
 }
 
 /* Gradient overlays for ambiance */
@@ -75,13 +76,16 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    transition: all 0.1s ease-out;
+    transform-origin: center center;
+    transition: none; /* Remove transitions for smoother scroll */
     z-index: 1;
     max-width: 95vw;
     max-height: 85vh;
     border-radius: 16px;
     overflow: hidden;
     box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+    will-change: width, height; /* GPU acceleration hint */
+    contain: layout style; /* CSS containment for performance */
 }
 
 /* When expanding, use fixed position */
@@ -112,10 +116,11 @@
             rgba(91, 76, 61, 0.2) 50%,
             rgba(64, 120, 125, 0.25) 100%
         ),
-        rgba(0, 0, 0, 0.3);
-    transition: opacity 0.3s ease;
+        rgba(0, 0, 0, 0.5);
+    transition: none; /* Remove transition for smoother scroll */
     pointer-events: none;
     border-radius: 16px;
+    will-change: opacity; /* GPU acceleration hint */
 }
 
 /* Logo */
@@ -126,6 +131,14 @@
     transform: translateX(-50%);
     z-index: 100;
     opacity: 1;
+    transition: opacity 0.3s ease-out;
+}
+
+/* Hide logo when user scrolls down past hero section */
+body:not(.expansion-locked) .expansion-logo {
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
 }
 
 .expansion-logo .hero-logo {
@@ -184,31 +197,40 @@
     font-size: clamp(2rem, 4.5vw, 4rem);
     line-height: 1.2;
     margin: 0;
-    transition: transform 0.1s ease-out, opacity 0.3s ease-out;
+    transition: none; /* Remove transitions for smoother scroll */
     white-space: nowrap;
+    will-change: transform; /* GPU acceleration hint */
 }
 
 .expansion-title-first {
     font-weight: 700;
     color: var(--white-soft);
+    text-shadow:
+        0 2px 8px rgba(0, 0, 0, 0.8),
+        0 4px 16px rgba(0, 0, 0, 0.6),
+        0 0 40px rgba(0, 0, 0, 0.4);
 }
 
 .expansion-title-rest {
     font-weight: 300;
-    color: var(--gray-400);
+    color: var(--gray-300);
+    text-shadow:
+        0 2px 8px rgba(0, 0, 0, 0.8),
+        0 4px 16px rgba(0, 0, 0, 0.6),
+        0 0 40px rgba(0, 0, 0, 0.4);
 }
 
 /* Titles move during expansion (handled by JS) */
 
 /* Initial CTA button - positioned below the video */
 .expansion-initial-cta {
-    position: absolute;
+    position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, calc(-50% + 280px)); /* Position below the video */
     z-index: 25;
     opacity: 1;
-    transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+    transition: opacity 0.3s ease-out;
     pointer-events: auto;
 }
 
@@ -219,6 +241,13 @@
 /* Hide initial CTA when expanding or when content is visible */
 .scroll-expansion-hero.expanding .expansion-initial-cta,
 .expansion-content.visible ~ .expansion-initial-cta {
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+}
+
+/* Hide when user scrolls down past hero section */
+body:not(.expansion-locked) .expansion-initial-cta {
     opacity: 0;
     pointer-events: none;
     visibility: hidden;
@@ -237,10 +266,11 @@
     position: relative;
     font-size: 1.25rem;
     color: var(--air-light);
-    transition: transform 0.1s ease-out, opacity 0.3s ease-out;
+    transition: opacity 0.3s ease-out; /* Keep opacity transition, remove transform */
     margin-top: 1rem;
     text-align: center;
     opacity: 0;
+    will-change: transform; /* GPU acceleration hint */
 }
 
 /* Show subtitle texts when not expanding or when progress is low */
