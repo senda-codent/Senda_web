@@ -274,10 +274,30 @@ document.addEventListener('DOMContentLoaded', () => {
             dot.addEventListener('click', () => {
                 const targetSection = sections.find(s => s.id === dot.dataset.section);
                 if (targetSection && targetSection.element) {
-                    targetSection.element.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+                    // Check if scroll expansion is active and not fully expanded
+                    const scrollExpansion = window.scrollExpansionHero;
+                    if (scrollExpansion && !scrollExpansion.isFullyExpanded) {
+                        // Complete expansion first
+                        scrollExpansion.scrollProgress = 1;
+                        scrollExpansion.updateExpansion();
+                        scrollExpansion.isFullyExpanded = true;
+                        document.body.classList.remove('expansion-locked');
+                        scrollExpansion.container.classList.remove('expanding');
+                        scrollExpansion.showContent();
+
+                        // Then scroll after a short delay
+                        setTimeout(() => {
+                            targetSection.element.scrollIntoView({
+                                behavior: 'smooth',
+                                block: 'start'
+                            });
+                        }, 300);
+                    } else {
+                        targetSection.element.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
                 }
             });
         });

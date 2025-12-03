@@ -1454,64 +1454,58 @@
 }
 
 .waitlist-form {
-    margin: var(--spacing-lg) 0 var(--spacing-xl) 0;
+    margin: var(--spacing-xl) 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xxl);
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Step containers */
+.waitlist-step {
+    position: relative;
+}
+
+.step-label {
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-medium);
+    color: var(--earth-light);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: var(--spacing-md);
+    opacity: 0.8;
+}
+
+/* Step 1: Inputs side by side on desktop */
+.step-inputs {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-areas:
-        "inputs questions"
-        "benefits benefits"
-        "submit submit";
-    gap: var(--spacing-xl) var(--spacing-xxl);
-    max-width: 100%;
-}
-
-.waitlist-left-column {
-    grid-area: inputs;
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-md);
-    position: relative;
-    min-width: 300px;
-}
-
-/* Glow effect behind form inputs */
-.waitlist-left-column::before {
-    content: '';
-    position: absolute;
-    top: -20px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 120%;
-    height: 200px;
-    background: radial-gradient(
-        ellipse at center,
-        rgba(82, 195, 112, 0.15) 0%,
-        rgba(91, 168, 199, 0.1) 40%,
-        transparent 70%
-    );
-    filter: blur(60px);
-    pointer-events: none;
-    z-index: -1;
-}
-
-.waitlist-right-column {
-    grid-area: questions;
-    display: flex;
-    flex-direction: column;
+    gap: var(--spacing-lg);
 }
 
 .form-group {
     width: 100%;
 }
 
+.form-label {
+    display: block;
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-medium);
+    color: var(--gray-300);
+    margin-bottom: var(--spacing-xs);
+}
+
 .form-input {
     width: 100%;
-    padding: var(--spacing-md) var(--spacing-lg);
+    max-width: 100%;
+    padding: var(--spacing-sm) var(--spacing-md);
     background: rgba(255, 255, 255, 0.10);
     border: 1.5px solid rgba(82, 195, 112, 0.5);
-    border-radius: var(--border-radius-lg);
+    border-radius: var(--border-radius-md);
     color: var(--white-soft);
-    font-size: var(--font-size-md);
+    font-size: var(--font-size-sm);
     transition: all var(--transition-normal);
     font-family: inherit;
     box-shadow: 0 4px 20px rgba(82, 195, 112, 0.1);
@@ -1519,6 +1513,7 @@
 
 .form-input::placeholder {
     color: var(--gray-600);
+    font-size: var(--font-size-xs);
 }
 
 .form-input:focus {
@@ -1528,41 +1523,53 @@
     box-shadow: 0 0 0 4px rgba(82, 195, 112, 0.15), 0 8px 30px rgba(82, 195, 112, 0.2);
 }
 
-.waitlist-submit {
-    grid-area: submit;
-    max-width: 400px;
-    width: 100%;
-    margin: 0 auto;
-    padding: var(--spacing-sm) var(--spacing-lg);
-    display: block;
+/* Microcopy for survey questions */
+.survey-microcopy {
+    font-size: var(--font-size-xs);
+    color: var(--gray-500);
+    margin: 4px 0 var(--spacing-sm) calc(28px + var(--spacing-lg) + var(--spacing-sm));
+    line-height: 1.4;
+    font-style: italic;
 }
 
+/* Submit button */
+.waitlist-submit {
+    max-width: 450px;
+    width: 100%;
+    margin: 0 auto;
+    padding: var(--spacing-md) var(--spacing-xl);
+    display: block;
+    font-weight: var(--font-semibold);
+    letter-spacing: 0.05em;
+}
+
+/* Benefits section */
 .waitlist-benefits {
-    grid-area: benefits;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: var(--spacing-lg);
+    gap: var(--spacing-md);
     width: 100%;
+    margin-top: var(--spacing-md);
 }
 
 .benefit-item {
     text-align: center;
-    padding: var(--spacing-md);
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid var(--gray-800);
+    padding: var(--spacing-sm) var(--spacing-md);
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--gray-850);
     border-radius: var(--border-radius-md);
     transition: all var(--transition-normal);
 }
 
 .benefit-item:hover {
     border-color: var(--gray-700);
-    background: rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.08);
 }
 
 .benefit-icon {
-    font-size: 1.5rem;
-    margin-bottom: var(--spacing-sm);
-    color: var(--gray-500);
+    font-size: 1rem;
+    margin-bottom: var(--spacing-xs);
+    color: var(--gray-600);
     opacity: 0.5;
     transition: all var(--transition-normal);
     font-weight: 200;
@@ -1586,16 +1593,9 @@
     transform: translateY(-2px);
 }
 
-.benefit-item h4 {
-    font-size: var(--font-size-sm);
-    font-weight: var(--font-medium);
-    color: var(--white-soft);
-    margin-bottom: 4px;
-}
-
 .benefit-item p {
     font-size: var(--font-size-xs);
-    color: var(--gray-500);
+    color: var(--gray-400);
     margin: 0;
     line-height: 1.4;
 }
@@ -1604,7 +1604,7 @@
     text-align: center;
     font-size: var(--font-size-sm);
     color: var(--gray-500);
-    margin-top: var(--spacing-md);
+    margin-top: var(--spacing-lg);
     margin-bottom: 0;
 }
 
@@ -1614,6 +1614,36 @@
     color: var(--earth-light);
     display: inline-block;
     margin-right: var(--spacing-xs);
+}
+
+/* Waitlist Responsive - Mobile */
+@media (max-width: 768px) {
+    .waitlist-form {
+        gap: var(--spacing-xl);
+    }
+
+    .step-inputs {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+
+    .waitlist-benefits {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-sm);
+    }
+
+    .benefit-item {
+        padding: var(--spacing-sm);
+    }
+
+    .waitlist-submit {
+        max-width: 100%;
+        padding: var(--spacing-md) var(--spacing-lg);
+    }
+
+    .survey-microcopy {
+        margin-left: calc(28px + var(--spacing-xs));
+    }
 }
 
 /* ==========================================
@@ -2157,6 +2187,82 @@ strong {
     width: 100%;
 }
 
+/* AI Integration Banner */
+.ai-integration-banner {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-lg);
+    max-width: 85%;
+    margin: var(--spacing-xl) auto 0;
+    padding: var(--spacing-lg) var(--spacing-xl);
+    background: linear-gradient(135deg, rgba(0, 200, 218, 0.12) 0%, rgba(82, 195, 112, 0.08) 100%);
+    backdrop-filter: blur(30px) saturate(150%);
+    -webkit-backdrop-filter: blur(30px) saturate(150%);
+    border: 1px solid rgba(0, 200, 218, 0.25);
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.ai-integration-banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(ellipse at 20% 50%, rgba(0, 200, 218, 0.15) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.ai-integration-icon {
+    flex-shrink: 0;
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 200, 218, 0.15);
+    border: 1px solid rgba(0, 200, 218, 0.3);
+    border-radius: 50%;
+    position: relative;
+    z-index: 1;
+}
+
+.ai-integration-icon svg {
+    width: 28px;
+    height: 28px;
+    stroke: var(--air-light);
+    animation: pulseGlow 3s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+    0%, 100% { opacity: 0.8; filter: drop-shadow(0 0 4px rgba(0, 200, 218, 0.4)); }
+    50% { opacity: 1; filter: drop-shadow(0 0 12px rgba(0, 200, 218, 0.6)); }
+}
+
+.ai-integration-content {
+    flex: 1;
+    position: relative;
+    z-index: 1;
+}
+
+.ai-integration-title {
+    font-size: var(--font-size-md);
+    font-weight: var(--font-semibold);
+    color: var(--white-soft);
+    margin: 0 0 var(--spacing-xs) 0;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+.ai-integration-description {
+    font-size: var(--font-size-sm);
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.5;
+    margin: 0;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
 /* Mobile responsive */
 @media (max-width: 768px) {
     .what-we-do-grid {
@@ -2176,6 +2282,32 @@ strong {
     .what-description {
         font-size: var(--font-size-sm);
     }
+
+    .ai-integration-banner {
+        flex-direction: column;
+        text-align: center;
+        max-width: 95%;
+        padding: var(--spacing-lg);
+        gap: var(--spacing-md);
+    }
+
+    .ai-integration-icon {
+        width: 48px;
+        height: 48px;
+    }
+
+    .ai-integration-icon svg {
+        width: 24px;
+        height: 24px;
+    }
+
+    .ai-integration-title {
+        font-size: var(--font-size-sm);
+    }
+
+    .ai-integration-description {
+        font-size: var(--font-size-xs);
+    }
 }
 
 /* ==========================================
@@ -2188,10 +2320,9 @@ strong {
 
 /* Grid for questions - 2 columns */
 .survey-questions-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--spacing-lg);
-    margin-bottom: var(--spacing-lg);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
     width: 100%;
 }
 
@@ -2256,14 +2387,14 @@ strong {
     display: flex;
     align-items: flex-start;
     gap: var(--spacing-sm);
-    padding: var(--spacing-md) var(--spacing-lg);
+    padding: var(--spacing-sm) var(--spacing-lg);
+    padding-bottom: 0;
     background: transparent;
     border: none;
     color: var(--white-soft);
     text-align: left;
     cursor: pointer;
     transition: all 0.3s ease;
-    min-height: 80px;
 }
 
 .survey-question-header:hover {
@@ -2318,16 +2449,15 @@ strong {
 }
 
 .survey-question.active .survey-question-content {
-    max-height: 800px;
-    padding: 0 var(--spacing-lg) var(--spacing-lg) var(--spacing-lg);
+    max-height: 400px;
+    padding: 0 var(--spacing-lg) var(--spacing-sm) var(--spacing-lg);
 }
 
 /* Options */
 .survey-options {
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-sm);
-    margin-bottom: var(--spacing-lg);
+    gap: var(--spacing-xs);
 }
 
 .survey-checkbox,
@@ -2405,10 +2535,5 @@ strong {
 
     .waitlist-benefits {
         margin-top: var(--spacing-lg);
-    }
-
-    /* Survey questions grid stacks on mobile */
-    .survey-questions-grid {
-        grid-template-columns: 1fr;
     }
 }

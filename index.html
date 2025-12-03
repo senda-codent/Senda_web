@@ -119,6 +119,22 @@
                         </p>
                     </div>
                 </div>
+
+                <!-- AI Integration Banner -->
+                <div class="ai-integration-banner">
+                    <div class="ai-integration-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <circle cx="12" cy="12" r="3"/>
+                            <path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/>
+                        </svg>
+                    </div>
+                    <div class="ai-integration-content">
+                        <h4 class="ai-integration-title">Todo conectado por una IA que te conoce</h4>
+                        <p class="ai-integration-description">
+                            Analizamos tus datos en tiempo real — sueño, actividad, estado físico — para que vos y tus profesionales tomen decisiones basadas en información real, no en suposiciones.
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -236,217 +252,165 @@
     <section id="waitlist" class="section waitlist-section">
         <div class="container">
             <div class="waitlist-content">
+                <!-- Título y Subtítulo -->
                 <div class="section-header">
                     <h2>Únete a la Lista de Espera</h2>
                     <p class="section-subtitle">
-                        Sé de los primeros en experimentar una mejor forma de vivir. Obtén acceso anticipado exclusivo y beneficios de miembro fundador.
+                        Sé de los primeros en vivir una mejor forma de organizar tu día. Acceso anticipado y beneficios de miembro fundador.
                     </p>
                 </div>
 
                 <form class="waitlist-form" id="waitlistForm">
-                    <!-- Left Column: Form Inputs + Benefits -->
-                    <div class="waitlist-left-column">
-                        <!-- Datos básicos siempre visibles -->
-                        <div class="form-group">
-                            <input
-                                type="text"
-                                id="waitlistName"
-                                class="form-input"
-                                placeholder="Tu nombre"
-                                required
-                            >
-                        </div>
-                        <div class="form-group">
-                            <input
-                                type="email"
-                                id="waitlistEmail"
-                                class="form-input"
-                                placeholder="Tu correo electrónico"
-                                required
-                            >
-                        </div>
-
-                        <!-- Benefits moved here -->
-                        <div class="waitlist-benefits">
-                            <div class="benefit-item">
-                                <div class="benefit-icon">—</div>
-                                <h4>Beneficios de Miembro Fundador</h4>
-                                <p>Descuento de por vida + funciones exclusivas</p>
+                    <!-- STEP 1: Nombre + Email -->
+                    <div class="waitlist-step step-1">
+                        <div class="step-label">Paso 1</div>
+                        <div class="step-inputs">
+                            <div class="form-group">
+                                <label for="waitlistName" class="form-label">Tu nombre</label>
+                                <input
+                                    type="text"
+                                    id="waitlistName"
+                                    class="form-input"
+                                    placeholder="Como te llamamos"
+                                    required
+                                >
                             </div>
-                            <div class="benefit-item">
-                                <div class="benefit-icon">—</div>
-                                <h4>Acceso Anticipado</h4>
-                                <p>Sé el primero en probar nuevas funciones</p>
-                            </div>
-                            <div class="benefit-item">
-                                <div class="benefit-icon">—</div>
-                                <h4>Influencia Directa</h4>
-                                <p>Da forma al producto con tu feedback</p>
+                            <div class="form-group">
+                                <label for="waitlistEmail" class="form-label">Tu correo electrónico</label>
+                                <input
+                                    type="email"
+                                    id="waitlistEmail"
+                                    class="form-input"
+                                    placeholder="Te enviaremos el acceso anticipado aquí"
+                                    required
+                                >
                             </div>
                         </div>
                     </div>
 
-                    <!-- Right Column: Survey Questions -->
-                    <div class="waitlist-right-column">
-                        <!-- Sección de preguntas desplegables -->
+                    <!-- STEP 2: Preguntas (3) -->
+                    <div class="waitlist-step step-2">
+                        <div class="step-label">Paso 2</div>
                         <div class="survey-section">
-                        <!-- Questions Grid -->
-                        <div class="survey-questions-grid">
-                        <!-- Pregunta 1 -->
-                        <div class="survey-question" data-question="1">
-                            <button type="button" class="survey-question-header">
-                                <span class="survey-question-number">1</span>
-                                <span class="survey-question-title">¿Qué te impide mantener una rutina de bienestar?</span>
-                                <svg class="survey-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <polyline points="6 9 12 15 18 9"></polyline>
-                                </svg>
-                            </button>
-                            <div class="survey-question-content">
-                                <div class="survey-options">
-                                    <label class="survey-checkbox">
-                                        <input type="checkbox" name="barriers" value="no-time">
-                                        <span>No tengo tiempo para planificar</span>
-                                    </label>
-                                    <label class="survey-checkbox">
-                                        <input type="checkbox" name="barriers" value="no-start">
-                                        <span>No sé por dónde empezar</span>
-                                    </label>
-                                    <label class="survey-checkbox">
-                                        <input type="checkbox" name="barriers" value="no-motivation">
-                                        <span>Me falta motivación constante</span>
-                                    </label>
-                                    <label class="survey-checkbox">
-                                        <input type="checkbox" name="barriers" value="too-complex">
-                                        <span>Es muy complicado organizar todo</span>
-                                    </label>
-                                    <label class="survey-checkbox">
-                                        <input type="checkbox" name="barriers" value="no-results">
-                                        <span>No veo resultados rápidos</span>
-                                    </label>
-                                    <label class="survey-checkbox">
-                                        <input type="checkbox" name="barriers" value="other">
-                                        <span>Otro</span>
-                                    </label>
+                            <div class="survey-questions-grid">
+                                <!-- Pregunta 1 -->
+                                <div class="survey-question" data-question="1">
+                                    <button type="button" class="survey-question-header">
+                                        <span class="survey-question-number">1</span>
+                                        <span class="survey-question-title">¿Qué te impide mantener una rutina?</span>
+                                        <svg class="survey-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <polyline points="6 9 12 15 18 9"></polyline>
+                                        </svg>
+                                    </button>
+                                    <p class="survey-microcopy">Nos ayuda a adaptar la app a lo que realmente te pasa.</p>
+                                    <div class="survey-question-content">
+                                        <div class="survey-options">
+                                            <label class="survey-checkbox">
+                                                <input type="checkbox" name="barriers" value="no-time">
+                                                <span>No tengo tiempo para planificar</span>
+                                            </label>
+                                            <label class="survey-checkbox">
+                                                <input type="checkbox" name="barriers" value="no-start">
+                                                <span>No sé por dónde empezar</span>
+                                            </label>
+                                            <label class="survey-checkbox">
+                                                <input type="checkbox" name="barriers" value="no-motivation">
+                                                <span>Me falta motivación constante</span>
+                                            </label>
+                                            <label class="survey-checkbox">
+                                                <input type="checkbox" name="barriers" value="too-complex">
+                                                <span>Es muy complicado organizar todo</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Pregunta 2 -->
+                                <div class="survey-question" data-question="2">
+                                    <button type="button" class="survey-question-header">
+                                        <span class="survey-question-number">2</span>
+                                        <span class="survey-question-title">¿Cómo te gustaría que armemos tus planes personalizados?</span>
+                                        <svg class="survey-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <polyline points="6 9 12 15 18 9"></polyline>
+                                        </svg>
+                                    </button>
+                                    <p class="survey-microcopy">Te escuchamos para diseñar la experiencia ideal para vos.</p>
+                                    <div class="survey-question-content">
+                                        <div class="survey-options">
+                                            <label class="survey-checkbox">
+                                                <input type="checkbox" name="approach" value="ai-only">
+                                                <span>Totalmente automatizado con IA</span>
+                                            </label>
+                                            <label class="survey-checkbox">
+                                                <input type="checkbox" name="approach" value="professional">
+                                                <span>Con revisión de profesionales</span>
+                                            </label>
+                                            <label class="survey-checkbox">
+                                                <input type="checkbox" name="approach" value="hybrid">
+                                                <span>Híbrido: IA + consultas con profesionales</span>
+                                            </label>
+                                            <label class="survey-checkbox">
+                                                <input type="checkbox" name="approach" value="flexible">
+                                                <span>Flexible según el momento</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Pregunta 3 -->
+                                <div class="survey-question" data-question="3">
+                                    <button type="button" class="survey-question-header">
+                                        <span class="survey-question-number">3</span>
+                                        <span class="survey-question-title">¿Cuánto pagarías mensualmente por tener todo listo cada mañana?</span>
+                                        <svg class="survey-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <polyline points="6 9 12 15 18 9"></polyline>
+                                        </svg>
+                                    </button>
+                                    <p class="survey-microcopy">Nos ayuda a definir un precio justo.</p>
+                                    <div class="survey-question-content">
+                                        <div class="survey-options">
+                                            <label class="survey-checkbox">
+                                                <input type="checkbox" name="pricing" value="0-10">
+                                                <span>$0 - $10 USD</span>
+                                            </label>
+                                            <label class="survey-checkbox">
+                                                <input type="checkbox" name="pricing" value="10-25">
+                                                <span>$10 - $25 USD</span>
+                                            </label>
+                                            <label class="survey-checkbox">
+                                                <input type="checkbox" name="pricing" value="25-50">
+                                                <span>$25 - $50 USD</span>
+                                            </label>
+                                            <label class="survey-checkbox">
+                                                <input type="checkbox" name="pricing" value="50+">
+                                                <span>Más de $50 USD</span>
+                                            </label>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-
-                        <!-- Pregunta 2 -->
-                        <div class="survey-question" data-question="2">
-                            <button type="button" class="survey-question-header">
-                                <span class="survey-question-number">2</span>
-                                <span class="survey-question-title">¿Cuánto pagarías mensualmente por tener todo listo cada mañana?</span>
-                                <svg class="survey-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <polyline points="6 9 12 15 18 9"></polyline>
-                                </svg>
-                            </button>
-                            <div class="survey-question-content">
-                                <div class="survey-options">
-                                    <label class="survey-radio">
-                                        <input type="radio" name="pricing" value="0-10">
-                                        <span>$0 - $10 USD</span>
-                                    </label>
-                                    <label class="survey-radio">
-                                        <input type="radio" name="pricing" value="10-20">
-                                        <span>$10 - $20 USD</span>
-                                    </label>
-                                    <label class="survey-radio">
-                                        <input type="radio" name="pricing" value="20-40">
-                                        <span>$20 - $40 USD</span>
-                                    </label>
-                                    <label class="survey-radio">
-                                        <input type="radio" name="pricing" value="40-60">
-                                        <span>$40 - $60 USD</span>
-                                    </label>
-                                    <label class="survey-radio">
-                                        <input type="radio" name="pricing" value="60+">
-                                        <span>Más de $60 USD</span>
-                                    </label>
-                                    <label class="survey-radio">
-                                        <input type="radio" name="pricing" value="not-pay">
-                                        <span>No pagaría por esto</span>
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Pregunta 3 -->
-                        <div class="survey-question" data-question="3">
-                            <button type="button" class="survey-question-header">
-                                <span class="survey-question-number">3</span>
-                                <span class="survey-question-title">¿Qué preferís para crear tus planes personalizados?</span>
-                                <svg class="survey-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <polyline points="6 9 12 15 18 9"></polyline>
-                                </svg>
-                            </button>
-                            <div class="survey-question-content">
-                                <div class="survey-options">
-                                    <label class="survey-radio">
-                                        <input type="radio" name="approach" value="ai-only">
-                                        <span>Totalmente automatizado con IA (más económico)</span>
-                                    </label>
-                                    <label class="survey-radio">
-                                        <input type="radio" name="approach" value="professional">
-                                        <span>Con revisión de profesionales (entrenador, nutricionista)</span>
-                                    </label>
-                                    <label class="survey-radio">
-                                        <input type="radio" name="approach" value="hybrid">
-                                        <span>Híbrido: IA + consultas ocasionales con profesionales</span>
-                                    </label>
-                                    <label class="survey-radio">
-                                        <input type="radio" name="approach" value="human-only">
-                                        <span>Solo profesionales humanos</span>
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Pregunta 4 -->
-                        <div class="survey-question" data-question="4">
-                            <button type="button" class="survey-question-header">
-                                <span class="survey-question-number">4</span>
-                                <span class="survey-question-title">¿Qué módulos te interesan más? (máximo 3)</span>
-                                <svg class="survey-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <polyline points="6 9 12 15 18 9"></polyline>
-                                </svg>
-                            </button>
-                            <div class="survey-question-content">
-                                <div class="survey-options">
-                                    <label class="survey-checkbox">
-                                        <input type="checkbox" name="modules" value="training">
-                                        <span>Entrenamiento físico personalizado</span>
-                                    </label>
-                                    <label class="survey-checkbox">
-                                        <input type="checkbox" name="modules" value="nutrition">
-                                        <span>Plan de alimentación y recetas</span>
-                                    </label>
-                                    <label class="survey-checkbox">
-                                        <input type="checkbox" name="modules" value="meditation">
-                                        <span>Meditación y mindfulness diario</span>
-                                    </label>
-                                    <label class="survey-checkbox">
-                                        <input type="checkbox" name="modules" value="wearables">
-                                        <span>Seguimiento con wearables (reloj, banda)</span>
-                                    </label>
-                                    <label class="survey-checkbox">
-                                        <input type="checkbox" name="modules" value="community">
-                                        <span>Comunidad para entrenar en grupo</span>
-                                    </label>
-                                    <label class="survey-checkbox">
-                                        <input type="checkbox" name="modules" value="kinesiology">
-                                        <span>Kinesiología y prevención de lesiones</span>
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                        </div>
-                        <!-- End Questions Grid -->
-
-                        <!-- Submit button outside grid -->
-                        <button type="submit" class="btn btn-primary btn-large waitlist-submit">
-                            Finalizar y Unirse a la Lista
-                        </button>
                     </div>
+
+                    <!-- Botón CTA -->
+                    <button type="submit" class="btn btn-primary btn-large waitlist-submit">
+                        FINALIZAR Y UNIRSE A LA LISTA
+                    </button>
+
+                    <!-- Beneficios del miembro fundador -->
+                    <div class="waitlist-benefits">
+                        <div class="benefit-item">
+                            <div class="benefit-icon">—</div>
+                            <p>Descuento de por vida</p>
+                        </div>
+                        <div class="benefit-item">
+                            <div class="benefit-icon">—</div>
+                            <p>Acceso anticipado a nuevas funciones</p>
+                        </div>
+                        <div class="benefit-item">
+                            <div class="benefit-icon">—</div>
+                            <p>Podés influir directamente en el desarrollo</p>
+                        </div>
                     </div>
                 </form>
 
@@ -541,14 +505,14 @@
         </div>
     </section>
 
-    <!-- CTA -->
-    <section class="section cta-section">
+    <!-- CTA - Filosofía -->
+    <section class="section cta-section cta-philosophy">
         <div class="container text-center cta-content">
-            <h2 class="cta-title">Tu vida mejor comienza mañana por la mañana</h2>
+            <h2 class="cta-title">¿Querés saber más sobre nuestra filosofía?</h2>
             <p class="cta-description">
-                Únete a miles de personas que despiertan con su plan de bienestar listo y esperando. Cero esfuerzo requerido.
+                Conocé el porqué detrás de Senda y cómo pensamos el bienestar integral.
             </p>
-            <a href="#waitlist" class="btn btn-primary btn-large">Únete a la Lista de Espera</a>
+            <a href="about.html" class="btn btn-secondary btn-large">Conocer Nuestra Filosofía</a>
         </div>
     </section>
 
